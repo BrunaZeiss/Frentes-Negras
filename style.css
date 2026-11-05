@@ -47,7 +47,7 @@ body{margin:0;font-family:Georgia, 'Times New Roman', Times, serif}
 .post-article {max-width: 900px;margin: 0 auto;}
 .post-article h1 {margin: 0 0 16px;font-size: clamp(2.2rem, 5vw, 4rem);line-height: 1.1;}
 .post-article time {display: block;margin-bottom: 40px;font-size: 0.85rem;opacity: 0.65;}
-.post-image {display: block;width: 100%;max-height: 550px;object-fit: cover;margin-bottom: 40px;}
+.post-image {display: block;max-width: 100%;height: auto;margin-bottom: 40px;}
 .post-text {max-width: 760px;margin: 0 auto;}
 .post-text p {margin: 0 0 24px;font-size: 1.08rem;line-height: 1.8;}
 
