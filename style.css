@@ -23,6 +23,9 @@ body{margin:0;font-family:Georgia, 'Times New Roman', Times, serif}
 .hamburger-menu a:hover{background:rgba(214,167,44,0.08)}
 .hamburger.open .hamburger-menu{display:block}
 
+.main-image-placeholder{display:grid;place-items:center;min-height:clamp(180px, 32vw, 420px);padding:24px;background:#e9e3d8;border-bottom:1px dashed rgba(36,26,22,0.35);color:#6f6256;text-align:center}
+.main-image-placeholder p{margin:0}
+
 .hero-section{position:relative;display:flex;align-items:center;justify-content:center;min-height:520px;padding:60px 24px;background-image:url('imagens/959af35c-40f9-450c-b6b9-8b5cd47cd507.webp');background-size:cover;background-position:center;overflow:hidden}
 .hero-overlay{position:absolute;inset:0;background:rgba(11,9,8,0.42)}
 .hero-content{position:relative;z-index:1;max-width:760px;text-align:center;color:#F5F1E8}
