@@ -3,7 +3,7 @@
 <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Fale Conosco</title>
+        <title>Fale Conosco | Frentes Negras do Vale</title>
         <link rel="stylesheet" href="../style.css">
         <script src="../script.js" defer></script>
 </head>
@@ -43,13 +43,49 @@
             </div>
         </header>
 
-        <section class="hero-section">
-            <div class="hero-overlay"></div>
-            <div class="hero-content">
-                <h1>Fale Conosco</h1>
-                <p>Estamos aqui para ouvir suas perguntas, sugestões e feedback sobre o projeto.</p>
-            </div>
-        </section>
+        <main class="contact-page">
+            <section class="hero-section" aria-labelledby="contact-title">
+                <div class="hero-overlay"></div>
+                <div class="hero-content">
+                    <h1 id="contact-title">Fale Conosco</h1>
+                    <p>Estamos aqui para ouvir suas perguntas, sugestões e feedback sobre o projeto.</p>
+                </div>
+            </section>
+
+            <section class="contact-form-section" aria-labelledby="contact-form-title">
+                <div class="contact-form-container">
+                    <div class="contact-form-intro">
+                        <h2 id="contact-form-title">Envie uma mensagem</h2>
+                        <p>Envie dúvidas, sugestões, documentos, fotografias, relatos e informações relacionadas à história e à cultura negra no Vale do Itajaí.</p>
+                    </div>
+                    <form class="contact-form" action="https://formspree.io/f/xeaggnlp" method="POST" enctype="multipart/form-data" data-contact-form>
+                        <div class="contact-form-field">
+                            <label for="contact-name">Nome</label>
+                            <input id="contact-name" name="name" type="text" autocomplete="name" required>
+                        </div>
+                        <div class="contact-form-field">
+                            <label for="contact-email">E-mail</label>
+                            <input id="contact-email" name="email" type="email" autocomplete="email" required>
+                        </div>
+                        <div class="contact-form-field">
+                            <label for="contact-subject">Assunto</label>
+                            <input id="contact-subject" name="subject" type="text">
+                        </div>
+                        <div class="contact-form-field">
+                            <label for="contact-message">Mensagem</label>
+                            <textarea id="contact-message" name="message" rows="6" required></textarea>
+                        </div>
+                        <div class="contact-form-field">
+                            <label for="contact-attachments">Fotografias e documentos (opcional)</label>
+                            <input id="contact-attachments" name="attachment" type="file" accept="image/jpeg,image/png,image/webp,image/gif,.pdf,.doc,.docx,.odt,.txt,.rtf" multiple data-contact-attachments aria-describedby="contact-attachments-help">
+                            <p class="contact-form-help" id="contact-attachments-help">Selecione até 10 arquivos, com no máximo 25 MB cada e 100 MB no total. Os arquivos ficam armazenados no Formspree; a notificação por e-mail contém links para acessá-los.</p>
+                        </div>
+                        <button class="contact-form-submit" type="submit" data-contact-submit>Enviar mensagem</button>
+                        <p class="contact-form-status" data-contact-status role="status" aria-live="polite"></p>
+                    </form>
+                </div>
+            </section>
+        </main>
 
         <footer class="site-footer">
             <div class="footer-content">

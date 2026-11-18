@@ -3,7 +3,7 @@
 <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Lugares</title>
+        <title>Lugares de Memória e Cultura | Frentes Negras do Vale</title>
         <link rel="stylesheet" href="../style.css">
         <script src="../script.js" defer></script>
 </head>
@@ -42,6 +42,39 @@
                 </nav>
             </div>
         </header>
+
+        <main class="places-page">
+            <section class="places-intro" aria-labelledby="places-title">
+                <div class="places-container">
+                    <p class="places-kicker">Catálogo de memória e patrimônio</p>
+                    <h1 id="places-title">Lugares de Memória e Cultura</h1>
+                    <p>Espaço para reunir locais de importância para a história, a cultura e a memória da população negra em Itajaí e no Vale do Itajaí.</p>
+                </div>
+            </section>
+            <section class="places-catalog" data-place-catalog aria-label="Catálogo de lugares">
+                <div class="places-filters" role="group" aria-label="Filtrar lugares por categoria">
+                    <button class="places-filter-button" type="button" data-place-filter="all" aria-pressed="true">Todos</button>
+                    <button class="places-filter-button" type="button" data-place-filter="culture-events" aria-pressed="false">Espaços de cultura e eventos</button>
+                    <button class="places-filter-button" type="button" data-place-filter="people-trajectories" aria-pressed="false">Lugares ligados a pessoas e trajetórias</button>
+                    <button class="places-filter-button" type="button" data-place-filter="historical-heritage" aria-pressed="false">Patrimônio e construções históricas</button>
+                </div>
+                <div class="places-grid" data-place-list></div>
+                <p class="places-empty-state" data-place-empty role="status" aria-live="polite">Os locais serão adicionados aqui.</p>
+                <!-- Para incluir um local, copie o artigo do modelo para data-place-list, escolha uma categoria abaixo e atualize os links. Duplique lugares/modelo.html para criar a página individual. Categorias: culture-events, people-trajectories ou historical-heritage. -->
+                <template id="place-card-template">
+                    <!-- Para adicionar uma fotografia, substitua o espaço reservado por <img class="place-card-photo" src="../imagens/ARQUIVO-DO-LOCAL.jpg" alt="Fotografia de NOME DO LUGAR">. -->
+                    <article class="place-card" data-place-card data-place-category="SUBSTITUIR-PELA-CATEGORIA">
+                        <div class="place-card-photo-placeholder" role="img" aria-label="Fotografia do lugar a inserir">Fotografia do local a inserir</div>
+                        <div class="place-card-content">
+                            <p class="place-card-location">Localização a inserir</p>
+                            <h2><a href="lugares/modelo.html">Nome do lugar a inserir</a></h2>
+                            <p>Descrição breve a inserir.</p>
+                            <a class="place-card-link" href="lugares/modelo.html">Conheça o lugar</a>
+                        </div>
+                    </article>
+                </template>
+            </section>
+        </main>
 
         <footer class="site-footer">
             <div class="footer-content">

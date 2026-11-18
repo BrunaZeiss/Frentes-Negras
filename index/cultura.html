@@ -3,7 +3,7 @@
 <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Cultura</title>
+        <title>Cultura e manifestações | Frentes Negras do Vale</title>
         <link rel="stylesheet" href="../style.css">
         <script src="../script.js" defer></script>
 </head>
@@ -42,6 +42,58 @@
                 </nav>
             </div>
         </header>
+
+        <main class="culture-page">
+            <section class="culture-intro" aria-labelledby="culture-title">
+                <div class="culture-container">
+                    <p class="culture-kicker">Cultura, memória e saberes</p>
+                    <h1 id="culture-title">Cultura negra no Vale do Itajaí</h1>
+                    <p>Espaço para reunir e valorizar manifestações culturais negras da região, incluindo eventos, culinária, música, dança, artes, religiosidade, tradições e saberes populares.</p>
+                </div>
+            </section>
+
+            <section class="culture-catalog" data-culture-catalog aria-labelledby="culture-catalog-title">
+                <h2 id="culture-catalog-title">Explore por categoria</h2>
+                <div class="culture-category-nav" role="group" aria-label="Categorias culturais">
+                    <button class="culture-category-button" type="button" data-culture-category="all" aria-pressed="true">Todas</button>
+                    <button class="culture-category-button" type="button" data-culture-category="events" aria-pressed="false">Eventos e celebrações</button>
+                    <button class="culture-category-button" type="button" data-culture-category="culinary" aria-pressed="false">Culinária e saberes alimentares</button>
+                    <button class="culture-category-button" type="button" data-culture-category="music-dance" aria-pressed="false">Música e dança</button>
+                    <button class="culture-category-button" type="button" data-culture-category="arts" aria-pressed="false">Artes e expressões culturais</button>
+                    <button class="culture-category-button" type="button" data-culture-category="religiosity-traditions" aria-pressed="false">Religiosidade e tradições</button>
+                    <button class="culture-category-button" type="button" data-culture-category="memory-knowledge" aria-pressed="false">Memória e saberes populares</button>
+                </div>
+
+                <div class="culture-status-filter">
+                    <label for="culture-status">Filtrar por situação</label>
+                    <select id="culture-status" data-culture-status-filter>
+                        <option value="all">Todas as situações</option>
+                        <option value="current-upcoming">Eventos atuais e próximos</option>
+                        <option value="past">Eventos já realizados</option>
+                        <option value="permanent">Manifestações culturais permanentes</option>
+                    </select>
+                </div>
+
+                <div class="culture-card-grid" data-culture-list></div>
+                <p class="culture-empty-state" data-culture-empty role="status" aria-live="polite">Os conteúdos serão adicionados aqui.</p>
+
+                <!-- Para incluir um conteúdo, copie o artigo do modelo para data-culture-list. Defina data-culture-category e data-culture-status; atualize título, apresentação, imagem e link da página individual. -->
+                <!-- Categorias: events, culinary, music-dance, arts, religiosity-traditions, memory-knowledge. Situações: current-upcoming, past, permanent. -->
+                <template id="culture-card-template">
+                    <article class="culture-card" data-culture-card data-culture-category="SUBSTITUIR-PELA-CATEGORIA" data-culture-status="SUBSTITUIR-PELA-SITUACAO">
+                        <!-- Para inserir uma fotografia, substitua o espaço reservado por <img class="culture-card-image" src="../imagens/ARQUIVO-DA-IMAGEM.jpg" alt="Descrição da imagem">. -->
+                        <div class="culture-card-image-placeholder" role="img" aria-label="Imagem a inserir">Fotografia ou imagem a inserir</div>
+                        <div class="culture-card-content">
+                            <p class="culture-card-category" data-culture-card-category></p>
+                            <h3 class="culture-card-title">Título a inserir</h3>
+                            <p class="culture-card-status" data-culture-card-status></p>
+                            <p class="culture-card-summary">Apresentação breve a inserir.</p>
+                            <a class="culture-card-link" href="cultura/modelo-manifestacao.html">Conheça este conteúdo</a>
+                        </div>
+                    </article>
+                </template>
+            </section>
+        </main>
 
         <footer class="site-footer">
             <div class="footer-content">

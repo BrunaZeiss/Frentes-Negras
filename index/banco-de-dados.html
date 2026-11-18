@@ -3,7 +3,7 @@
 <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Banco de Dados</title>
+        <title>Banco de Dados | Frentes Negras do Vale</title>
         <link rel="stylesheet" href="../style.css">
         <script src="../script.js" defer></script>
 </head>
@@ -42,6 +42,87 @@
                 </nav>
             </div>
         </header>
+
+        <main class="database-page">
+            <section class="database-intro" aria-labelledby="database-title">
+                <div class="database-container">
+                    <p class="database-kicker">Catálogo de fontes e registros</p>
+                    <h1 id="database-title">Banco de Dados</h1>
+                    <p>Catálogo de fontes, documentos, registros e informações relacionados à presença, à história, à organização e à cultura negra em Itajaí e no Vale do Itajaí.</p>
+                </div>
+            </section>
+
+            <section class="database-catalog" data-database-catalog aria-labelledby="database-records-title">
+                <h2 id="database-records-title">Consultar o catálogo</h2>
+                <div class="database-tools">
+                    <div class="database-keyword-search">
+                        <label for="database-keywords">Pesquisar por palavras-chave</label>
+                        <input id="database-keywords" type="search" data-database-search placeholder="Digite título, autoria ou termos da descrição">
+                    </div>
+                    <div class="database-filter-grid" aria-label="Filtros do catálogo">
+                        <div class="database-filter-field">
+                            <label for="database-type">Tipo de material</label>
+                            <select id="database-type" data-database-filter="type">
+                                <option value="">Todos os tipos</option>
+                                <option value="historical-document">Documentos históricos</option>
+                                <option value="visual-record">Fotografias e registros visuais</option>
+                                <option value="academic-production">Produção acadêmica</option>
+                                <option value="historical-data">Dados e levantamentos históricos</option>
+                            </select>
+                        </div>
+                        <div class="database-filter-field">
+                            <label for="database-period">Período histórico</label>
+                            <input id="database-period" type="search" data-database-filter="period" placeholder="Filtrar por período ou data">
+                        </div>
+                        <div class="database-filter-field">
+                            <label for="database-municipality">Município</label>
+                            <input id="database-municipality" type="search" data-database-filter="municipality" placeholder="Filtrar por município">
+                        </div>
+                        <div class="database-filter-field">
+                            <label for="database-subject">Assunto</label>
+                            <input id="database-subject" type="search" data-database-filter="subject" placeholder="Filtrar por assunto">
+                        </div>
+                    </div>
+                    <button class="database-reset" type="button" data-database-reset>Limpar filtros</button>
+                </div>
+
+                <div class="database-record-grid" data-database-list></div>
+                <p class="database-empty-state" data-database-empty role="status" aria-live="polite">Os registros serão adicionados aqui.</p>
+
+                <!-- Para incluir um registro, copie o artigo do modelo para data-database-list. Atualize os campos visíveis e data-material-type. Valores de tipo: historical-document, visual-record, academic-production ou historical-data. -->
+                <template id="database-record-template">
+                    <article class="database-record" data-database-record data-material-type="historical-document">
+                        <p class="database-record-type">Documento histórico</p>
+                        <h3 class="database-record-title">Título do material a inserir</h3>
+                        <dl class="database-record-metadata">
+                            <div>
+                                <dt>Data ou período</dt>
+                                <dd class="database-record-period">Informação a inserir</dd>
+                            </div>
+                            <div>
+                                <dt>Município</dt>
+                                <dd class="database-record-municipality">Informação a inserir</dd>
+                            </div>
+                            <div>
+                                <dt>Autoria ou instituição</dt>
+                                <dd class="database-record-author">Informação a inserir</dd>
+                            </div>
+                            <div>
+                                <dt>Assunto</dt>
+                                <dd class="database-record-subject">Informação a inserir</dd>
+                            </div>
+                        </dl>
+                        <p class="database-record-description">Descrição breve a inserir.</p>
+                        <div class="database-record-access">
+                            <!-- Mantenha o link se o material estiver disponível online e substitua o endereço. -->
+                            <a class="database-record-link" href="URL-DO-MATERIAL-A-INSERIR">Consultar material online</a>
+                            <!-- Se não houver acesso digital, substitua esta informação pela instituição, arquivo ou coleção de consulta. -->
+                            <p class="database-record-repository">Instituição, arquivo ou coleção a inserir.</p>
+                        </div>
+                    </article>
+                </template>
+            </section>
+        </main>
 
         <footer class="site-footer">
             <div class="footer-content">
