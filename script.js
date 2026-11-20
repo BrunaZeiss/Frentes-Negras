@@ -112,7 +112,7 @@ function initializeNewsPagination(newsList) {
   const cards = Array.from(newsList.children).filter(function(child) {
     return child.classList.contains('post-card');
   });
-  const pageSize = 10;
+  const pageSize = 9;
   const pageCount = Math.ceil(cards.length / pageSize);
 
   if (!pagination || !previousButton || !nextButton || !pageNumbers) {
@@ -168,6 +168,95 @@ function initializeNewsPagination(newsList) {
   });
 
   renderPage();
+}
+
+function initializeBiographyCatalog(catalog) {
+  const searchInput = catalog.querySelector('[data-biography-search]');
+  const cardList = catalog.querySelector('[data-biography-list]');
+  const emptyState = catalog.querySelector('[data-biography-empty]');
+  const pagination = catalog.querySelector('[data-biography-pagination]');
+  const previousButton = catalog.querySelector('[data-biography-prev]');
+  const nextButton = catalog.querySelector('[data-biography-next]');
+  const pageNumbers = catalog.querySelector('[data-biography-pages]');
+
+  if (!searchInput || !cardList || !emptyState || !pagination ||
+      !previousButton || !nextButton || !pageNumbers) {
+    console.error('A estrutura da busca e da paginação de biografias está incompleta.');
+    return;
+  }
+
+  const cards = Array.from(cardList.querySelectorAll('[data-biography-card]'));
+  const pageSize = 4;
+  let currentPage = 1;
+  let filteredCards = cards.slice();
+
+  function normalizeText(value) {
+    return String(value || '')
+      .toLocaleLowerCase('pt-BR')
+      .normalize('NFD')
+      .replace(/[\u0300-\u036f]/g, '');
+  }
+
+  function renderCatalog() {
+    const pageCount = Math.max(1, Math.ceil(filteredCards.length / pageSize));
+    if (currentPage > pageCount) currentPage = pageCount;
+
+    cards.forEach(function(card) {
+      card.hidden = true;
+    });
+
+    const firstCardIndex = (currentPage - 1) * pageSize;
+    filteredCards.forEach(function(card, index) {
+      card.hidden = index < firstCardIndex || index >= firstCardIndex + pageSize;
+    });
+
+    emptyState.hidden = filteredCards.length !== 0;
+    pagination.hidden = filteredCards.length <= pageSize;
+    previousButton.disabled = currentPage === 1;
+    nextButton.disabled = currentPage === pageCount;
+    pageNumbers.replaceChildren();
+
+    for (let page = 1; page <= pageCount && filteredCards.length > 0; page++) {
+      const button = document.createElement('button');
+      button.type = 'button';
+      button.textContent = String(page);
+      button.setAttribute('aria-label', 'Página ' + page);
+      if (page === currentPage) button.setAttribute('aria-current', 'page');
+      button.addEventListener('click', function() {
+        currentPage = page;
+        renderCatalog();
+      });
+      pageNumbers.appendChild(button);
+    }
+  }
+
+  searchInput.addEventListener('input', function() {
+    const keyword = normalizeText(searchInput.value);
+    filteredCards = cards.filter(function(card) {
+      const searchableText = normalizeText(
+        card.textContent + ' ' + (card.dataset.keywords || '')
+      );
+      return !keyword || searchableText.includes(keyword);
+    });
+    currentPage = 1;
+    renderCatalog();
+  });
+
+  previousButton.addEventListener('click', function() {
+    if (currentPage > 1) {
+      currentPage--;
+      renderCatalog();
+    }
+  });
+  nextButton.addEventListener('click', function() {
+    const pageCount = Math.ceil(filteredCards.length / pageSize);
+    if (currentPage < pageCount) {
+      currentPage++;
+      renderCatalog();
+    }
+  });
+
+  renderCatalog();
 }
 
 function initializePlaceFilters(catalog) {
@@ -508,6 +597,9 @@ document.addEventListener('DOMContentLoaded', function() {
 
   const newsList = document.querySelector('[data-news-list]');
   if (newsList) initializeNewsPagination(newsList);
+
+  const biographiesCatalog = document.querySelector('[data-biography-catalog]');
+  if (biographiesCatalog) initializeBiographyCatalog(biographiesCatalog);
 
   const placesCatalog = document.querySelector('[data-place-catalog]');
   if (placesCatalog) initializePlaceFilters(placesCatalog);

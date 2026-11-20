@@ -3,7 +3,7 @@
 <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Biografias e Trajetórias | Frentes Negras do Vale</title>
+        <title>Arte, Pensamento e Resistência | Frentes Negras do Vale</title>
         <link rel="stylesheet" href="../style.css">
         <script src="../script.js" defer></script>
 </head>
@@ -32,7 +32,7 @@
                     <ul>
                         <li><a href="noticias.html">Notícias</a></li>
                         <li><a href="marcos-historicos.html">Marcos Históricos</a></li>
-                        <li><a href="biografias-e-trajetorias.html">Biografias e Tragetórias</a></li>
+                        <li><a href="biografias-e-trajetorias.html">Arte, Pensamento e Resistência</a></li>
                         <li><a href="lugares.html">Lugares</a></li>
                         <li><a href="banco-de-dados.html">Banco de Dados</a></li>
                         <li><a href="cultura.html">Cultura</a></li>
@@ -43,63 +43,101 @@
             </div>
         </header>
 
-        <main class="biographies-page">
+        <main class="biographies-page" data-biography-catalog>
             <section class="biographies-intro" aria-labelledby="biographies-title">
                 <div class="biographies-container">
                     <p class="biographies-kicker">Memória, cultura e resistência</p>
-                    <h1 id="biographies-title">Biografias e Trajetórias</h1>
-                    <p>Espaço dedicado à preservação e valorização da memória de pessoas negras em Itajaí e no Vale do Itajaí.</p>
+                    <h1 id="biographies-title">Arte, Pensamento e Resistência</h1>
+                    <p> Um espaço dedicado à valorização da arte, do pensamento e da resistência negra em Santa Catarina. Reunimos trajetórias de artistas, escritores, poetas, músicos, intelectuais, militantes e outras personalidades que, por meio de suas produções, ideias e ações, contribuem para a construção da cultura, da memória e da história catarinense.</p>
+                    <div class="biography-search" role="search">
+                        <label for="biography-search-input">Pesquisar personalidade ou trajetória</label>
+                        <input id="biography-search-input"
+                               type="search"
+                               placeholder="Ex.: movimento negro, educação, cultura..."
+                               autocomplete="off"
+                               data-biography-search>
+                    </div>
                 </div>
             </section>
             <section class="biography-gallery" aria-label="Galeria de biografias">
-                <div class="biography-grid">
-                    <!-- Para adicionar um retrato, substitua o espaço reservado por <img class="biography-card-portrait" src="../imagens/ARQUIVO-DO-RETRATO.jpg" alt="Retrato de NOME">. -->
-                    <article class="biography-card">
-                        <div class="biography-card-portrait-placeholder" role="img" aria-label="Retrato a inserir">Retrato a inserir</div>
+                <div class="biography-grid" data-biography-list>
+                    <article class="biography-card" data-biography-card data-keywords="personalidade trajetória história período atuação">
+                        <img class="biography-card-portrait" src="../imagens/sebastiao lucas.png" alt="Retrato a inserir">
                         <div class="biography-card-content">
-                            <p class="biography-card-meta">Período histórico ou área de atuação a inserir</p>
-                            <h2>Nome da personalidade a inserir</h2>
-                            <p>Apresentação biográfica breve a inserir.</p>
+                            <p class="biography-card-meta">MOVIMENTO NEGRO</p>
+                            <h2>Sebastião Lucas Pereira</h2>
+                            <p>Nasceu na localidade de Espinheirinhos, na região rural de Itajaí, filho de Isabel Lucinda Guimarães e de pessoas de origem escravizada. Foi trabalhador portuário e atuou por cerca de 35 anos na Companhia de Indústria e Comércio Malburg. Destacou-se como liderança negra e operária, participando da fundação e organização de associações como a Sociedade 13 de Maio e a Sociedade Beneficente XV de Novembro, da qual foi presidente entre 1921 e 1923. Também participou de iniciativas ligadas ao Humaytá Foot-Ball Club e ao Clube de Regatas Cruz e Sousa. Sua atuação foi marcada pela defesa dos trabalhadores, pela organização comunitária e pela luta por melhores condições de trabalho. Faleceu em Itajaí, em 29 de agosto de 1946. Seu legado foi reconhecido em 1952, quando uma sociedade cultural e beneficente da cidade recebeu seu nome, tornando-se um importante espaço de sociabilidade e resistência negra.</p>
                             <a class="biography-card-link" href="biografias/pessoa-01.html">Conheça sua história</a>
                         </div>
                     </article>
-                    <article class="biography-card">
-                        <div class="biography-card-portrait-placeholder" role="img" aria-label="Retrato a inserir">Retrato a inserir</div>
+
+
+                    <article class="biography-card" data-biography-card data-keywords="personalidade trajetória história período atuação">
+                        <img class="biography-card-portrait" src="../imagens/jose bento.png" alt="Retrato a inserir">
                         <div class="biography-card-content">
-                            <p class="biography-card-meta">Período histórico ou área de atuação a inserir</p>
-                            <h2>Nome da personalidade a inserir</h2>
-                            <p>Apresentação biográfica breve a inserir.</p>
+                            <p class="biography-card-meta">HISTÓRIA E PESQUISA</p>
+                            <h2>José Bento Rosa da Silva</h2>
+                            <p>José Bento Rosa da Silva é historiador, escritor, professor e pesquisador dedicado ao estudo da história da população negra em Santa Catarina, especialmente na região de Itajaí e do Vale do Itajaí. Com formação acadêmica em História e trajetória de pesquisa voltada à escravidão, ao pós-abolição, à diáspora africana e à memória afro-brasileira, desenvolveu importantes estudos sobre a participação negra na formação social, econômica e cultural catarinense. É autor e coautor de obras como Negros em Itajahy: da invisibilidade à visibilidade (2010) e Braços Negros na Foz do Itajaí (2021). Sua atuação contribui para recuperar trajetórias historicamente silenciadas e dar visibilidade ao protagonismo da população negra na história regional.</p>
                             <a class="biography-card-link" href="biografias/pessoa-02.html">Conheça sua história</a>
                         </div>
                     </article>
-                    <article class="biography-card">
-                        <div class="biography-card-portrait-placeholder" role="img" aria-label="Retrato a inserir">Retrato a inserir</div>
+
+
+                    <article class="biography-card" data-biography-card data-keywords="personalidade trajetória história período atuação">
+                        <img class="biography-card-portrait" src="../imagens/simeao temporario.png" alt="Retrato a inserir">
                         <div class="biography-card-content">
-                            <p class="biography-card-meta">Período histórico ou área de atuação a inserir</p>
-                            <h2>Nome da personalidade a inserir</h2>
-                            <p>Apresentação biográfica breve a inserir.</p>
+                            <p class="biography-card-meta">FIGURA HISTÓRICA</p>
+                            <h2>Simeão</h2>
+                            <p>Simeão foi um homem negro escravizado por Agostinho Alves Ramos, cuja memória está associada à construção da Igreja da Imaculada Conceição, em Itajaí, no século XIX, conhecida como Igrejinha Velha. Segundo relatos históricos e a memória oral, trabalhava como pedreiro e teve participação fundamental na construção de um dos marcos históricos do município. Apesar de sua contribuição, pouco se sabe sobre sua vida pessoal, como seu nascimento, sua origem e seus familiares. Sua trajetória representa a participação de pessoas escravizadas na formação de Itajaí e evidencia o apagamento de suas contribuições na memória histórica oficial.</p>
                             <a class="biography-card-link" href="biografias/pessoa-03.html">Conheça sua história</a>
                         </div>
                     </article>
-                    <article class="biography-card">
-                        <div class="biography-card-portrait-placeholder" role="img" aria-label="Retrato a inserir">Retrato a inserir</div>
+
+
+                    <article class="biography-card" data-biography-card data-keywords="personalidade trajetória história período atuação">
+                        <img class="biography-card-portrait" src="../imagens/ilustraback.png" alt="Retrato a inserir">
                         <div class="biography-card-content">
-                            <p class="biography-card-meta">Período histórico ou área de atuação a inserir</p>
-                            <h2>Nome da personalidade a inserir</h2>
-                            <p>Apresentação biográfica breve a inserir.</p>
+                            <p class="biography-card-meta">ARTES VISUAIS</p>
+                            <h2>Robson Ricardo Barbosa</h2>
+                            <p>Conhecido artisticamente como IlustraBlack, é um artista visual e ilustrador natural de Itajaí (SC), nascido em 1987. Seu trabalho é marcado pela pintura digital e pela valorização da identidade e da representatividade negra. Em 2024, realizou a exposição Retratos Negros, no Museu Histórico de Itajaí, reunindo retratos de personalidades negras da cidade com o objetivo de dar visibilidade às suas histórias e contribuições. Por meio da arte, IlustraBlack busca preservar a memória e fortalecer a representação da população negra na cultura catarinense.</p>
                             <a class="biography-card-link" href="biografias/pessoa-04.html">Conheça sua história</a>
                         </div>
                     </article>
-                    <article class="biography-card">
-                        <div class="biography-card-portrait-placeholder" role="img" aria-label="Retrato a inserir">Retrato a inserir</div>
+                    <article class="biography-card" data-biography-card data-keywords="personalidade trajetória história período atuação">
+                        <img class="biography-card-portrait" src="../imagens/hang ferrero.png" alt="Retrato a inserir">
                         <div class="biography-card-content">
-                            <p class="biography-card-meta">Período histórico ou área de atuação a inserir</p>
-                            <h2>Nome da personalidade a inserir</h2>
-                            <p>Apresentação biográfica breve a inserir.</p>
+                            <p class="biography-card-meta">PRODUÇÃO CULTURAL</p>
+                            <h2>Hang Ferrero</h2>
+                            <p>Hang Ferrero é escritor, poeta e produtor cultural catarinense, nascido em Laguna e com atuação em Itajaí. Desenvolve trabalhos ligados à literatura, à poesia falada e à produção cultural, criando performances poéticas, saraus e oficinas literárias. Também participou da fundação do grupo de escritores Verbo e Maresia e da Academia Mirim de Letras da Academia de Letras do Brasil – Seccional Itajaí. Sua trajetória é marcada pelo incentivo à literatura e pela valorização da expressão artística e cultural.</p>
                             <a class="biography-card-link" href="biografias/pessoa-05.html">Conheça sua história</a>
                         </div>
                     </article>
+
+                <article class="biography-card" data-biography-card data-keywords="personalidade trajetória história período atuação">
+                        <img class="biography-card-portrait" src="../imagens/grazi.png" alt="Retrato a inserir">
+                        <div class="biography-card-content">
+                            <p class="biography-card-meta">EDUCAÇÃO E MOVIMENTO NEGRO</p>
+                            <h2>Grazielle Gleise Santana</h2>
+                            <p>Conhecida como Grazi Santana, é pedagoga, educadora e ativista antirracista de Itajaí (SC). Desde 2000, desenvolve trabalhos voltados à educação de crianças e adolescentes, utilizando a educação e a cultura como instrumentos de combate ao preconceito e valorização da população negra. Em 2018, criou o Projeto Afroarte, implantado no Instituto Sorrir, onde também coordena iniciativas como o projeto Xô Preconceito. Sua atuação também envolve a organização comunitária e a preservação da cultura afro-brasileira. Foi presidente da Sociedade Cultural e Beneficente Sebastião Lucas, integrou o Conselho Municipal de Políticas Culturais como representante da área de Expressões Artísticas Culturais Afro-Brasileiras e participa de espaços de articulação do movimento negro em Itajaí. Em reconhecimento à sua contribuição, recebeu o Prêmio Simeão de Valorização do Negro na Sociedade Itajaiense</p>
+                        </div>
+                    </article>
+
+                    <article class="biography-card" data-biography-card data-keywords="personalidade trajetória história período atuação">
+                        <img class="biography-card-portrait" src="../imagens/flavia dos santos.png" alt="Retrato a inserir">
+                        <div class="biography-card-content">
+                            <p class="biography-card-meta">MOVIMENTO NEGRO</p>
+                            <h2>Flávia Cristina Oliveira Santos</h2>
+                            <p>É advogada, professora universitária e pesquisadora, com atuação em Itajaí (SC). É mestre em Ciência Jurídica pela Universidade do Vale do Itajaí (UNIVALI), com pesquisa voltada à invisibilidade das comunidades remanescentes de quilombos em Santa Catarina diante da sobreposição entre parques e territórios tradicionais. Sua trajetória acadêmica e profissional envolve questões relacionadas aos direitos étnicos, territoriais, ambientais e à proteção de grupos socialmente vulnerabilizados. Também desenvolve atividades de pesquisa sobre igualdade racial e direitos das populações negras e indígenas, coordenando iniciativas como o Núcleo de Estudos Afro-Brasileiros e Indígenas (NEABI) e grupos de estudos sobre afrodescendentes e povos originários. Em 2025, recebeu o Prêmio Simeão, em reconhecimento à sua atuação em defesa da igualdade racial em Itajaí.</p>
+                        </div>
+                    </article>
+
                 </div>
+                <p class="biography-empty-state" data-biography-empty hidden>Nenhuma personalidade corresponde à pesquisa.</p>
+                <nav class="biography-pagination" data-biography-pagination aria-label="Paginação das biografias" hidden>
+                    <button type="button" data-biography-prev aria-label="Página anterior">‹</button>
+                    <div class="biography-pagination-pages" data-biography-pages></div>
+                    <button type="button" data-biography-next aria-label="Próxima página">›</button>
+                </nav>
             </section>
         </main>
 
@@ -116,7 +154,7 @@
                         <ul>
                             <li><a href="noticias.html">Notícias</a></li>
                             <li><a href="marcos-historicos.html">Marcos Históricos</a></li>
-                            <li><a href="biografias-e-trajetorias.html">Biografias e Tragetórias</a></li>
+                            <li><a href="biografias-e-trajetorias.html">Arte, Pensamento e Resistência</a></li>
                             <li><a href="lugares.html">Lugares</a></li>
                             <li><a href="banco-de-dados.html">Banco de Dados</a></li>
                             <li><a href="cultura.html">Cultura</a></li>
