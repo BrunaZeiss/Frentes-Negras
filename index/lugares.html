@@ -3,7 +3,7 @@
 <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Lugares de Memória e Cultura | Frentes Negras do Vale</title>
+        <title>Espaços de Memória e Cultura | Frentes Negras do Vale</title>
         <link rel="stylesheet" href="../style.css">
         <script src="../script.js" defer></script>
 </head>
@@ -33,9 +33,9 @@
                         <li><a href="noticias.html">Notícias</a></li>
                         <li><a href="marcos-historicos.html">Marcos Históricos</a></li>
                         <li><a href="biografias-e-trajetorias.html">Arte, Pensamento e Resistência</a></li>
-                        <li><a href="lugares.html">Lugares</a></li>
+                        <li><a href="lugares.html">Espaços de Memória e Cultura</a></li>
                         <li><a href="banco-de-dados.html">Banco de Dados</a></li>
-                        <li><a href="cultura.html">Cultura</a></li>
+                        <li><a href="cultura.html">Manifestações Culturais</a></li>
                         <li><a href="sobre-nos.html">Sobre nós</a></li>
                         <li><a href="fale-conosco.html">Fale Conosco</a></li>
                     </ul>
@@ -47,7 +47,7 @@
             <section class="places-intro" aria-labelledby="places-title">
                 <div class="places-container">
                     <p class="places-kicker">Catálogo de memória e patrimônio</p>
-                    <h1 id="places-title">Lugares de Memória e Cultura</h1>
+                    <h1 id="places-title">Espaços de Memória e Cultura</h1>
                     <p>Espaço para reunir locais de importância para a história, a cultura e a memória da população negra em Itajaí e no Vale do Itajaí.</p>
                 </div>
             </section>
@@ -55,14 +55,211 @@
                 <div class="places-filters" role="group" aria-label="Filtrar lugares por categoria">
                     <button class="places-filter-button" type="button" data-place-filter="all" aria-pressed="true">Todos</button>
                     <button class="places-filter-button" type="button" data-place-filter="culture-events" aria-pressed="false">Espaços de cultura e eventos</button>
-                    <button class="places-filter-button" type="button" data-place-filter="people-trajectories" aria-pressed="false">Lugares ligados a pessoas e trajetórias</button>
-                    <button class="places-filter-button" type="button" data-place-filter="historical-heritage" aria-pressed="false">Patrimônio e construções históricas</button>
+                    <button class="places-filter-button" type="button" data-place-filter="residential-territories" aria-pressed="false">Territórios residenciais</button>
+                    <button class="places-filter-button" type="button" data-place-filter="interactional-territories" aria-pressed="false">Territórios interacionais</button>
+                    <button class="places-filter-button" type="button" data-place-filter="historical-heritage" aria-pressed="false">Patrimônio e Pesquisa</button>
                 </div>
-                <div class="places-grid" data-place-list></div>
+                <div class="places-search">
+                    <label for="places-search-input">Pesquisar</label>
+                    <input id="places-search-input" type="search" data-place-search placeholder="Nome, endereço ou palavras-chave..." autocomplete="off">
+                </div>
+                <p class="places-category-description" data-place-category-description hidden>
+                    Os locais apresentados nesta seção seguem a classificação proposta pela antropóloga Ilka Boaventura Leite, que distingue os territórios negros em duas categorias: os de <strong>ocupação residencial</strong> e os de <strong>ocupação interacional</strong>. Essa classificação é retomada por José Bento Rosa da Silva (2025), no artigo <em>Clubes Negros em Itajaí (SC): territórios de ocupação interacional (1903–2025)</em>. A maioria dos territórios residenciais foi "removida" com a reurbanização da cidade a partir do final da década de 1980. E os clubes são territórios interacionais, ou seja, espaços de lazer e sociabilidade criados pela comunidade.
+                </p>
+                <div class="places-grid" data-place-list>
+                    <article class="place-card" data-place-card data-place-category="historical-heritage">
+                        <img class="place-card-photo" src="../imagens/igreja%20velha.jpg" alt="Igreja do Santíssimo Sacramento e de Nossa Senhora da Conceição">
+                        <div class="place-card-content">
+                            <p class="place-card-location">R. Hercílio Luz, 215-125 - Centro, Itajaí</p>
+                            <h2><a href="lugares/igreja-santissimo-sacramento-conceicao.html">Igreja do Santíssimo Sacramento e de Nossa Senhora da Conceição</a></h2>
+                            <p>Patrimônio histórico localizado no centro de Itajaí.</p>
+                            <a class="place-card-link" href="lugares/igreja-santissimo-sacramento-conceicao.html">Conheça o lugar</a>
+                        </div>
+                    </article>
+                    <article class="place-card" data-place-card data-place-category="culture-events">
+                        <img class="place-card-photo" src="../imagens/virada%20afro-cultural.webp" alt="Virada Afrocultural">
+                        <div class="place-card-content">
+                            <p class="place-card-location">Rua Getúlio Vargas, Vila Operária, ao lado da Sociedade Sebastião Lucas</p>
+                            <h2><a href="lugares/virada-afrocultural.html">Virada Afrocultural</a></h2>
+                            <p>Evento gratuito de 12 horas com música, capoeira, dança, feijoada e feira de artesanato.</p>
+                            <a class="place-card-link" href="lugares/virada-afrocultural.html">Conheça o lugar</a>
+                        </div>
+                    </article>
+                    <article class="place-card" data-place-card data-place-category="culture-events">
+                        <img class="place-card-photo" src="../imagens/festa%20do%20rosario.webp" alt="Festa de Nossa Senhora do Rosário">
+                        <div class="place-card-content">
+                            <p class="place-card-location">Local confirmado não informado</p>
+                            <h2><a href="lugares/festa-nossa-senhora-rosario.html">Festa de Nossa Senhora do Rosário</a></h2>
+                            <p>Patrimônio imaterial reinventado em 1992 pelo movimento social negro.</p>
+                            <a class="place-card-link" href="lugares/festa-nossa-senhora-rosario.html">Conheça o lugar</a>
+                        </div>
+                    </article>
+                    <article class="place-card" data-place-card data-place-category="culture-events">
+                        <img class="place-card-photo" src="../imagens/igreja%20velha.jpg" alt="Itajaí Sem Racismo">
+                        <div class="place-card-content">
+                            <p class="place-card-location">Atividades itinerantes em diversos locais de Itajaí</p>
+                            <h2><a href="lugares/itajai-sem-racismo.html">Itajaí Sem Racismo</a></h2>
+                            <p>Campanha da Secretaria de Assistência Social e Cidadania pelo mês da Consciência Negra.</p>
+                            <a class="place-card-link" href="lugares/itajai-sem-racismo.html">Conheça o lugar</a>
+                        </div>
+                    </article>
+                    <article class="place-card" data-place-card data-place-category="residential-territories">
+                        <img class="place-card-photo" src="../imagens/morro%20do%20boi.jpg" alt="Quilombo do Morro do Boi">
+                        <div class="place-card-content">
+                            <p class="place-card-location">Bairro Nova Esperança, Balneário Camboriú, SC</p>
+                            <h2><a href="lugares/quilombo-morro-do-boi.html">Quilombo do Morro do Boi</a></h2>
+                            <p>Comunidade certificada como remanescente de quilombo pela Fundação Cultural Palmares.</p>
+                            <a class="place-card-link" href="lugares/quilombo-morro-do-boi.html">Conheça o lugar</a>
+                        </div>
+                    </article>
+                    <article class="place-card" data-place-card data-place-category="residential-territories">
+                        <img class="place-card-photo" src="../imagens/igreja%20velha.jpg" alt="Bairro Fazenda">
+                        <div class="place-card-content">
+                            <p class="place-card-location">Bairro Fazenda, Itajaí, SC</p>
+                            <h2><a href="lugares/bairro-fazenda.html">Bairro Fazenda</a></h2>
+                            <p>Território ligado à sesmaria do fim do século XVIII e à Pastoral do Negro criada em 1988.</p>
+                            <a class="place-card-link" href="lugares/bairro-fazenda.html">Conheça o lugar</a>
+                        </div>
+                    </article>
+                    <article class="place-card" data-place-card data-place-category="historical-heritage">
+                        <img class="place-card-photo" src="../imagens/igreja%20velha.jpg" alt="Arquivo Histórico de Itajaí">
+                        <div class="place-card-content">
+                            <p class="place-card-location">Casa Lins, Centro, Itajaí</p>
+                            <h2><a href="lugares/arquivo-historico-itajai.html">Arquivo Histórico de Itajaí</a></h2>
+                            <p>Acervo documental fundado em 1976 pela Fundação Genésio Miranda Lins.</p>
+                            <a class="place-card-link" href="lugares/arquivo-historico-itajai.html">Conheça o lugar</a>
+                        </div>
+                    </article>
+                    <article class="place-card" data-place-card data-place-category="culture-events">
+                        <img class="place-card-photo" src="../imagens/igreja%20velha.jpg" alt="Associação Reino de Oxóssi">
+                        <div class="place-card-content">
+                            <p class="place-card-location">Rua 24 de Abril, 99, Carijós, Indaial, SC</p>
+                            <h2><a href="lugares/associacao-reino-de-oxossi.html">Associação Reino de Oxóssi (Ilê Axé Ijobá Odé Erin)</a></h2>
+                            <p>Centro cultural, educacional e assistencial de uma comunidade tradicional de matriz africana fundada em 2004.</p>
+                            <a class="place-card-link" href="lugares/associacao-reino-de-oxossi.html">Conheça o lugar</a>
+                        </div>
+                    </article>
+                    <article class="place-card" data-place-card data-place-category="culture-events">
+                        <img class="place-card-photo" src="../imagens/igreja%20velha.jpg" alt="Escola de Tradições de Matriz Africana de Indaial">
+                        <div class="place-card-content">
+                            <p class="place-card-location">Endereço não confirmado, Indaial, SC</p>
+                            <h2><a href="lugares/escola-tradicoes-matriz-africana-indaial.html">Escola de Tradições de Matriz Africana (Indaial)</a></h2>
+                            <p>Projeto de ensino das tradições de matriz africana criado pela Associação Reino de Oxóssi em 2023.</p>
+                            <a class="place-card-link" href="lugares/escola-tradicoes-matriz-africana-indaiial.html">Conheça o lugar</a>
+                        </div>
+                    </article>
+                    <article class="place-card" data-place-card data-place-category="culture-events">
+                        <img class="place-card-photo" src="../imagens/igreja%20velha.jpg" alt="Navegantes Que Ginga Pela Vida">
+                        <div class="place-card-content">
+                            <p class="place-card-location">Rua Pedro Dionísio de Souza, 191, fundos, Centro, Navegantes, SC</p>
+                            <h2><a href="lugares/navegantes-que-ginga-pela-vida.html">Navegantes Que Ginga Pela Vida</a></h2>
+                            <p>Associação esportiva e sociocultural voltada à capoeira e à cultura popular.</p>
+                            <a class="place-card-link" href="lugares/navegantes-que-ginga-pela-vida.html">Conheça o lugar</a>
+                        </div>
+                    </article>
+                    <article class="place-card" data-place-card data-place-category="culture-events">
+                        <img class="place-card-photo" src="../imagens/igreja%20velha.jpg" alt="Espaço Cultural Ecos de Santo Amaro">
+                        <div class="place-card-content">
+                            <p class="place-card-location">Local não confirmado, possivelmente Navegantes, SC</p>
+                            <h2><a href="lugares/ecos-de-santo-amaro.html">Espaço Cultural Ecos de Santo Amaro</a></h2>
+                            <p>Espaço ligado a oficinas de culinária afro-brasileira, vestuário afro, capoeira e manifestações culturais.</p>
+                            <a class="place-card-link" href="lugares/ecos-de-santo-amaro.html">Conheça o lugar</a>
+                        </div>
+                    </article>
+                    <article class="place-card" data-place-card data-place-category="historical-heritage">
+                        <img class="place-card-photo" src="../imagens/igreja%20velha.jpg" alt="Igreja Matriz São Pedro Apóstolo">
+                        <div class="place-card-content">
+                            <p class="place-card-location">Morro da Igreja, centro de Gaspar, SC</p>
+                            <h2><a href="lugares/igreja-matriz-sao-pedro-apostolo-gaspar.html">Igreja Matriz São Pedro Apóstolo (Gaspar)</a></h2>
+                            <p>Paróquia com registros de batismo de 1861 a 1888 usados na reconstituição de famílias escravizadas e libertas.</p>
+                            <a class="place-card-link" href="lugares/igreja-matriz-sao-pedro-apostolo-gaspar.html">Conheça o lugar</a>
+                        </div>
+                    </article>
+                    <article class="place-card" data-place-card data-place-category="residential-territories">
+                        <img class="place-card-photo" src="../imagens/igreja%20velha.jpg" alt="Beco do Quilombo">
+                        <div class="place-card-content">
+                            <p class="place-card-location">Endereço não confirmado</p>
+                            <h2><a href="lugares/beco-do-quilombo.html">Beco do Quilombo</a></h2>
+                            <p>Território negro residencial de Itajaí, hoje desaparecido ou descaracterizado pela reurbanização.</p>
+                            <a class="place-card-link" href="lugares/beco-do-quilombo.html">Conheça o lugar</a>
+                        </div>
+                    </article>
+                    <article class="place-card" data-place-card data-place-category="residential-territories">
+                        <img class="place-card-photo" src="../imagens/igreja%20velha.jpg" alt="Beco da Castanha">
+                        <div class="place-card-content">
+                            <p class="place-card-location">Endereço não confirmado</p>
+                            <h2><a href="lugares/beco-da-castanha.html">Beco da Castanha (depois Beco do Mikey)</a></h2>
+                            <p>Território residencial que mudou de nome com o tempo.</p>
+                            <a class="place-card-link" href="lugares/beco-da-castanha.html">Conheça o lugar</a>
+                        </div>
+                    </article>
+                    <article class="place-card" data-place-card data-place-category="residential-territories">
+                        <img class="place-card-photo" src="../imagens/igreja%20velha.jpg" alt="Esplanada">
+                        <div class="place-card-content">
+                            <p class="place-card-location">Endereço não confirmado</p>
+                            <h2><a href="lugares/esplanada.html">Esplanada</a></h2>
+                            <p>Território residencial negro de Itajaí, distinto do Esplanada – Quilombo Timbó.</p>
+                            <a class="place-card-link" href="lugares/esplanada.html">Conheça o lugar</a>
+                        </div>
+                    </article>
+                    <article class="place-card" data-place-card data-place-category="residential-territories">
+                        <img class="place-card-photo" src="../imagens/igreja%20velha.jpg" alt="Matadouro">
+                        <div class="place-card-content">
+                            <p class="place-card-location">Bairro Nossa Senhora das Graças, Itajaí — endereço não confirmado</p>
+                            <h2><a href="lugares/matadouro.html">Matadouro</a></h2>
+                            <p>Território residencial ligado ao bairro, também afetado pela reurbanização.</p>
+                            <a class="place-card-link" href="lugares/matadouro.html">Conheça o lugar</a>
+                        </div>
+                    </article>
+                    <article class="place-card" data-place-card data-place-category="interactional-territories">
+                        <img class="place-card-photo" src="../imagens/igreja%20velha.jpg" alt="Sociedade Cultural e Beneficente Sebastião Lucas">
+                        <div class="place-card-content">
+                            <p class="place-card-location">Endereço não confirmado</p>
+                            <h2><a href="lugares/sociedade-sebastiao-lucas.html">Sociedade Cultural e Beneficente Sebastião Lucas (1952)</a></h2>
+                            <p>Importante espaço de sociabilidade, lazer e resistência da população negra de Itajaí.</p>
+                            <a class="place-card-link" href="lugares/sociedade-sebastiao-lucas.html">Conheça o lugar</a>
+                        </div>
+                    </article>
+                    <article class="place-card" data-place-card data-place-category="interactional-territories">
+                        <img class="place-card-photo" src="../imagens/igreja%20velha.jpg" alt="Clube de Regatas Cruz e Souza">
+                        <div class="place-card-content">
+                            <p class="place-card-location">Endereço não confirmado</p>
+                            <h2><a href="lugares/cruz-e-souza.html">Cruz e Souza (década de 1920)</a></h2>
+                            <p>Primeira organização náutica de Santa Catarina formada por pessoas negras.</p>
+                            <a class="place-card-link" href="lugares/cruz-e-souza.html">Conheça o lugar</a>
+                        </div>
+                    </article>
+                    <article class="place-card" data-place-card data-place-category="interactional-territories">
+                        <img class="place-card-photo" src="../imagens/igreja%20velha.jpg" alt="Humaitá Futebol Clube">
+                        <div class="place-card-content">
+                            <p class="place-card-location">Endereço não confirmado</p>
+                            <h2><a href="lugares/humaita.html">Humaitá Futebol Clube (década de 1920)</a></h2>
+                            <p>Clube extinto que integrou a organização esportiva e comunitária da população negra.</p>
+                            <a class="place-card-link" href="lugares/humaita.html">Conheça o lugar</a>
+                        </div>
+                    </article>
+                    <article class="place-card" data-place-card data-place-category="interactional-territories">
+                        <img class="place-card-photo" src="../imagens/igreja%20velha.jpg" alt="Treze de Maio">
+                        <div class="place-card-content">
+                            <p class="place-card-location">Endereço não confirmado</p>
+                            <h2><a href="lugares/treze-de-maio.html">Treze de Maio (1903)</a></h2>
+                            <p>Organização mais antiga da lista, com nome relacionado à Abolição da escravidão.</p>
+                            <a class="place-card-link" href="lugares/treze-de-maio.html">Conheça o lugar</a>
+                        </div>
+                    </article>
+                    <article class="place-card" data-place-card data-place-category="interactional-territories">
+                        <img class="place-card-photo" src="../imagens/igreja%20velha.jpg" alt="Clube Recreativo Doze de Janeiro">
+                        <div class="place-card-content">
+                            <p class="place-card-location">Endereço não confirmado</p>
+                            <h2><a href="lugares/doze-de-janeiro.html">Clube Recreativo Doze de Janeiro (1942)</a></h2>
+                            <p>Clube fundado em 1942 para a sociabilidade da população negra de Itajaí.</p>
+                            <a class="place-card-link" href="lugares/doze-de-janeiro.html">Conheça o lugar</a>
+                        </div>
+                    </article>
+                </div>
                 <p class="places-empty-state" data-place-empty role="status" aria-live="polite">Os locais serão adicionados aqui.</p>
-                <!-- Para incluir um local, copie o artigo do modelo para data-place-list, escolha uma categoria abaixo e atualize os links. Duplique lugares/modelo.html para criar a página individual. Categorias: culture-events, people-trajectories ou historical-heritage. -->
                 <template id="place-card-template">
-                    <!-- Para adicionar uma fotografia, substitua o espaço reservado por <img class="place-card-photo" src="../imagens/ARQUIVO-DO-LOCAL.jpg" alt="Fotografia de NOME DO LUGAR">. -->
+        
                     <article class="place-card" data-place-card data-place-category="SUBSTITUIR-PELA-CATEGORIA">
                         <div class="place-card-photo-placeholder" role="img" aria-label="Fotografia do lugar a inserir">Fotografia do local a inserir</div>
                         <div class="place-card-content">
@@ -90,9 +287,9 @@
                             <li><a href="noticias.html">Notícias</a></li>
                             <li><a href="marcos-historicos.html">Marcos Históricos</a></li>
                             <li><a href="biografias-e-trajetorias.html">Arte, Pensamento e Resistência</a></li>
-                            <li><a href="lugares.html">Lugares</a></li>
+                            <li><a href="lugares.html">Espaços de Memória e Cultura</a></li>
                             <li><a href="banco-de-dados.html">Banco de Dados</a></li>
-                            <li><a href="cultura.html">Cultura</a></li>
+                            <li><a href="cultura.html">Manifestações Culturais</a></li>
                             <li><a href="sobre-nos.html">Sobre nós</a></li>
                             <li><a href="fale-conosco.html">Fale Conosco</a></li>
                         </ul>

@@ -263,8 +263,10 @@ function initializePlaceFilters(catalog) {
   const filterButtons = Array.from(catalog.querySelectorAll('[data-place-filter]'));
   const placeList = catalog.querySelector('[data-place-list]');
   const emptyState = catalog.querySelector('[data-place-empty]');
+  const categoryDescription = catalog.querySelector('[data-place-category-description]');
+  const searchInput = catalog.querySelector('[data-place-search]');
 
-  if (!placeList || !emptyState || filterButtons.length === 0) {
+  if (!placeList || !emptyState || !searchInput || filterButtons.length === 0) {
     console.error('A estrutura do catálogo de lugares está incompleta.');
     return;
   }
@@ -285,10 +287,24 @@ function initializePlaceFilters(catalog) {
 
   let activeCategory = 'all';
 
+  function normalizeText(value) {
+    return String(value || '')
+      .toLocaleLowerCase('pt-BR')
+      .normalize('NFD')
+      .replace(/[\u0300-\u036f]/g, '');
+  }
+
   function renderPlaces() {
     let visibleCount = 0;
+    const keyword = normalizeText(searchInput.value);
+    if (categoryDescription) {
+      categoryDescription.hidden = activeCategory !== 'residential-territories' && activeCategory !== 'interactional-territories';
+    }
     cards.forEach(function(card) {
-      const isVisible = activeCategory === 'all' || card.dataset.placeCategory === activeCategory;
+      const matchesCategory = activeCategory === 'all' || card.dataset.placeCategory === activeCategory;
+      const searchableText = normalizeText(card.textContent);
+      const matchesKeyword = !keyword || searchableText.includes(keyword);
+      const isVisible = matchesCategory && matchesKeyword;
       card.hidden = !isVisible;
       if (isVisible) visibleCount++;
     });
@@ -297,7 +313,9 @@ function initializePlaceFilters(catalog) {
       emptyState.textContent = 'Os locais serão adicionados aqui.';
       emptyState.hidden = false;
     } else if (visibleCount === 0) {
-      emptyState.textContent = 'Nenhum local encontrado nesta categoria.';
+      emptyState.textContent = keyword
+        ? 'Nenhum local encontrado para esta pesquisa.'
+        : 'Nenhum local encontrado nesta categoria.';
       emptyState.hidden = false;
     } else {
       emptyState.hidden = true;
@@ -319,6 +337,8 @@ function initializePlaceFilters(catalog) {
       renderPlaces();
     });
   });
+
+  searchInput.addEventListener('input', renderPlaces);
 
   renderPlaces();
 }
@@ -424,12 +444,13 @@ function initializeCultureCatalog(catalog) {
   }
 
   const categoryLabels = {
-    events: 'Eventos e celebrações',
+    events: 'Festas e celebrações',
     culinary: 'Culinária e saberes alimentares',
     'music-dance': 'Música e dança',
     arts: 'Artes e expressões culturais',
-    'religiosity-traditions': 'Religiosidade e tradições',
-    'memory-knowledge': 'Memória e saberes populares'
+    'religiosity-traditions': 'Religiosidade e fé',
+    'memory-knowledge': 'Memória e resistência',
+    'african-contemporary-presence': 'Presença africana contemporânea'
   };
   const statusLabels = {
     'current-upcoming': 'Eventos atuais e próximos',
