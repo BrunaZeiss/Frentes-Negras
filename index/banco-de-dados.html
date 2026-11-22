@@ -43,85 +43,154 @@
             </div>
         </header>
 
-        <main class="database-page">
+        <main class="database-page" data-database-catalog>
             <section class="database-intro" aria-labelledby="database-title">
                 <div class="database-container">
                     <p class="database-kicker">Catálogo de fontes e registros</p>
                     <h1 id="database-title">Banco de Dados</h1>
-                    <p>Catálogo de fontes, documentos, registros e informações relacionados à presença, à história, à organização e à cultura negra em Itajaí e no Vale do Itajaí.</p>
+                    <p>Fontes, documentos e referências sobre a presença, a história e a cultura negra em Itajaí e no Vale do Itajaí.</p>
                 </div>
             </section>
 
-            <section class="database-catalog" data-database-catalog aria-labelledby="database-records-title">
-                <h2 id="database-records-title">Consultar o catálogo</h2>
+            <nav class="database-section-nav" aria-label="Seções do catálogo">
+                <a href="#publicacoes">Publicações</a>
+                <a href="#acervos">Acervos e arquivos</a>
+                <a href="#audiovisual">Audiovisual</a>
+                <a href="#noticias-reportagens">Notícias e reportagens</a>
+                <a href="#documentos-oficiais">Documentos oficiais</a>
+                <a href="#glossario">Glossário</a>
+                <a href="#iconografias">Iconografias</a>
+            </nav>
+
+            <section class="database-catalog" aria-labelledby="database-search-title">
+                <h2 id="database-search-title">Pesquisar no catálogo</h2>
                 <div class="database-tools">
                     <div class="database-keyword-search">
-                        <label for="database-keywords">Pesquisar por palavras-chave</label>
-                        <input id="database-keywords" type="search" data-database-search placeholder="Digite título, autoria ou termos da descrição">
+                        <label for="database-keywords">Buscar por título, resumo ou autoria</label>
+                        <input id="database-keywords" type="search" data-database-search placeholder="Digite uma palavra-chave">
                     </div>
-                    <div class="database-filter-grid" aria-label="Filtros do catálogo">
+                    <div class="database-filter-grid">
                         <div class="database-filter-field">
-                            <label for="database-type">Tipo de material</label>
-                            <select id="database-type" data-database-filter="type">
-                                <option value="">Todos os tipos</option>
-                                <option value="historical-document">Documentos históricos</option>
-                                <option value="visual-record">Fotografias e registros visuais</option>
-                                <option value="academic-production">Produção acadêmica</option>
-                                <option value="historical-data">Dados e levantamentos históricos</option>
+                            <label for="database-theme">Tema</label>
+                            <select id="database-theme" data-database-filter="tema">
+                                <option value="">Todos os temas</option>
+                                <option value="clubes-e-sociedades">Clubes e sociedades</option>
+                                <option value="religiosidade">Religiosidade</option>
+                                <option value="imigracao-africana">Imigração africana</option>
+                                <option value="quilombos-e-territorios">Quilombos e territórios</option>
+                                <option value="escravidao-e-pos-abolicao">Escravidão e pós-abolição</option>
+                                <option value="movimento-negro">Movimento negro</option>
+                                <option value="festas-e-cultura">Festas e cultura</option>
+                                <option value="patrimonio">Patrimônio</option>
                             </select>
                         </div>
                         <div class="database-filter-field">
-                            <label for="database-period">Período histórico</label>
-                            <input id="database-period" type="search" data-database-filter="period" placeholder="Filtrar por período ou data">
-                        </div>
-                        <div class="database-filter-field">
                             <label for="database-municipality">Município</label>
-                            <input id="database-municipality" type="search" data-database-filter="municipality" placeholder="Filtrar por município">
+                            <select id="database-municipality" data-database-filter="municipio">
+                                <option value="">Todos os municípios</option>
+                            </select>
                         </div>
                         <div class="database-filter-field">
-                            <label for="database-subject">Assunto</label>
-                            <input id="database-subject" type="search" data-database-filter="subject" placeholder="Filtrar por assunto">
+                            <label for="database-type">Tipo</label>
+                            <select id="database-type" data-database-filter="tipo">
+                                <option value="">Todos os tipos</option>
+                            </select>
                         </div>
                     </div>
-                    <button class="database-reset" type="button" data-database-reset>Limpar filtros</button>
+                    <div class="database-results-tools">
+                        <p class="database-result-count" data-database-count role="status" aria-live="polite">Carregando itens…</p>
+                        <button class="database-reset" type="button" data-database-reset>Limpar filtros</button>
+                    </div>
                 </div>
-
-                <div class="database-record-grid" data-database-list></div>
-                <p class="database-empty-state" data-database-empty role="status" aria-live="polite">Os registros serão adicionados aqui.</p>
-
-                <!-- Para incluir um registro, copie o artigo do modelo para data-database-list. Atualize os campos visíveis e data-material-type. Valores de tipo: historical-document, visual-record, academic-production ou historical-data. -->
-                <template id="database-record-template">
-                    <article class="database-record" data-database-record data-material-type="historical-document">
-                        <p class="database-record-type">Documento histórico</p>
-                        <h3 class="database-record-title">Título do material a inserir</h3>
-                        <dl class="database-record-metadata">
-                            <div>
-                                <dt>Data ou período</dt>
-                                <dd class="database-record-period">Informação a inserir</dd>
-                            </div>
-                            <div>
-                                <dt>Município</dt>
-                                <dd class="database-record-municipality">Informação a inserir</dd>
-                            </div>
-                            <div>
-                                <dt>Autoria ou instituição</dt>
-                                <dd class="database-record-author">Informação a inserir</dd>
-                            </div>
-                            <div>
-                                <dt>Assunto</dt>
-                                <dd class="database-record-subject">Informação a inserir</dd>
-                            </div>
-                        </dl>
-                        <p class="database-record-description">Descrição breve a inserir.</p>
-                        <div class="database-record-access">
-                            <!-- Mantenha o link se o material estiver disponível online e substitua o endereço. -->
-                            <a class="database-record-link" href="URL-DO-MATERIAL-A-INSERIR">Consultar material online</a>
-                            <!-- Se não houver acesso digital, substitua esta informação pela instituição, arquivo ou coleção de consulta. -->
-                            <p class="database-record-repository">Instituição, arquivo ou coleção a inserir.</p>
-                        </div>
-                    </article>
-                </template>
             </section>
+
+            <div class="database-sections">
+                <section class="database-section" id="publicacoes" aria-labelledby="publicacoes-title" data-database-section="publicacoes">
+                    <div class="database-section-heading">
+                        <p class="database-kicker">01 · Pesquisa e produção acadêmica</p>
+                        <h2 id="publicacoes-title">Publicações</h2>
+                        <span class="database-section-count" data-section-count></span>
+                    </div>
+                    <div class="database-record-grid" data-database-list></div>
+                    <p class="database-empty-state" data-database-empty hidden>Nenhum resultado. Tente outro termo ou limpe os filtros.</p>
+                </section>
+
+                <section class="database-section" id="acervos" aria-labelledby="acervos-title" data-database-section="acervos">
+                    <div class="database-section-heading">
+                        <p class="database-kicker">02 · Memória e documentação</p>
+                        <h2 id="acervos-title">Acervos e arquivos</h2>
+                        <span class="database-section-count" data-section-count></span>
+                    </div>
+                    <div class="database-record-grid" data-database-list></div>
+                    <p class="database-empty-state" data-database-empty hidden>Nenhum resultado. Tente outro termo ou limpe os filtros.</p>
+                </section>
+
+                <section class="database-section" id="audiovisual" aria-labelledby="audiovisual-title" data-database-section="audiovisual">
+                    <div class="database-section-heading">
+                        <p class="database-kicker">03 · Imagens e narrativas</p>
+                        <h2 id="audiovisual-title">Audiovisual</h2>
+                        <span class="database-section-count" data-section-count></span>
+                    </div>
+                    <div class="database-record-grid" data-database-list></div>
+                    <p class="database-empty-state" data-database-empty hidden>Nenhum resultado. Tente outro termo ou limpe os filtros.</p>
+                </section>
+
+                <section class="database-section" id="noticias-reportagens" aria-labelledby="noticias-reportagens-title" data-database-section="noticias">
+                    <div class="database-section-heading">
+                        <p class="database-kicker">04 · Cobertura e contexto</p>
+                        <h2 id="noticias-reportagens-title">Notícias e reportagens</h2>
+                        <span class="database-section-count" data-section-count></span>
+                    </div>
+                    <div class="database-record-grid" data-database-list></div>
+                    <p class="database-empty-state" data-database-empty hidden>Nenhum resultado. Tente outro termo ou limpe os filtros.</p>
+                </section>
+
+                <section class="database-section" id="documentos-oficiais" aria-labelledby="documentos-oficiais-title" data-database-section="documentos">
+                    <div class="database-section-heading">
+                        <p class="database-kicker">05 · Registros institucionais</p>
+                        <h2 id="documentos-oficiais-title">Documentos oficiais</h2>
+                        <span class="database-section-count" data-section-count></span>
+                    </div>
+                    <div class="database-record-grid" data-database-list></div>
+                    <p class="database-empty-state" data-database-empty hidden>Nenhum resultado. Tente outro termo ou limpe os filtros.</p>
+                </section>
+
+                <section class="database-section" id="glossario" aria-labelledby="glossario-title" data-database-section="glossario">
+                    <div class="database-section-heading">
+                        <p class="database-kicker">06 · Conceitos e expressões</p>
+                        <h2 id="glossario-title">Glossário</h2>
+                        <span class="database-section-count" data-section-count></span>
+                    </div>
+                    <nav class="database-alphabet" aria-label="Índice alfabético do glossário" data-database-alphabet></nav>
+                    <div class="database-record-grid" data-database-list></div>
+                    <p class="database-empty-state" data-database-empty hidden>Nenhum resultado. Tente outro termo ou limpe os filtros.</p>
+                </section>
+
+                <section class="database-section" id="iconografias" aria-labelledby="iconografias-title" data-database-section="iconografias">
+                    <div class="database-section-heading">
+                        <p class="database-kicker">07 · Cultura visual e memória</p>
+                        <h2 id="iconografias-title">Iconografias</h2>
+                        <span class="database-section-count" data-section-count></span>
+                    </div>
+                    <div class="database-record-grid database-iconography-grid" data-database-list></div>
+                    <p class="database-empty-state" data-database-empty hidden>Nenhum resultado. Tente outro termo ou limpe os filtros.</p>
+                </section>
+            </div>
+
+            <dialog class="database-lightbox" data-database-lightbox aria-labelledby="database-lightbox-title">
+                <div class="database-lightbox-content">
+                    <button class="database-lightbox-close" type="button" data-lightbox-close aria-label="Fechar imagem ampliada">Fechar</button>
+                    <div class="database-lightbox-visual" data-lightbox-visual></div>
+                    <h2 id="database-lightbox-title" data-lightbox-title></h2>
+                    <p data-lightbox-description></p>
+                    <dl class="database-lightbox-credits">
+                        <div><dt>Crédito</dt><dd data-lightbox-credit></dd></div>
+                        <div><dt>Licença ou autorização</dt><dd data-lightbox-license></dd></div>
+                    </dl>
+                </div>
+            </dialog>
+
+            <p class="database-contact-note">Conteúdo em construção. Se encontrar um erro ou quiser indicar uma fonte, <a href="fale-conosco.html">entre em contato</a>.</p>
         </main>
 
         <footer class="site-footer">

@@ -196,45 +196,74 @@ body{margin:0;font-family:Georgia, 'Times New Roman', Times, serif}
 .place-detail-section p {max-width: 760px;margin: 0;font-size: 1.05rem;line-height: 1.8;}
 .place-back-link {display: inline-block;margin-top: 32px;color: #241A16;font-weight: 700;text-underline-offset: 3px;}
 
-.database-page {min-height: 55vh;background: #F5F1E8;color: #241A16;}
-.database-container {max-width: 1200px;margin: 0 auto;}
-.database-intro {padding: 72px 24px 44px;border-bottom: 1px solid rgba(214, 167, 44, 0.45);}
-.database-kicker {margin: 0 0 14px;color: #80621d;font-size: 0.78rem;font-weight: 700;letter-spacing: 0.14em;text-transform: uppercase;}
-.database-intro h1 {margin: 0 0 18px;font-size: clamp(2.2rem, 5vw, 4rem);line-height: 1.08;}
-.database-intro > .database-container > p:last-child {max-width: 780px;margin: 0;font-size: 1.08rem;line-height: 1.7;}
-.database-catalog {max-width: 1200px;margin: 0 auto;padding: 36px 24px 72px;}
-.database-catalog > h2 {margin: 0 0 20px;font-size: clamp(1.5rem, 2.5vw, 2rem);}
-.database-tools {margin-bottom: 32px;padding: 24px;border: 1px solid rgba(36, 26, 22, 0.12);border-radius: 8px;background: #fff;box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);}
-.database-keyword-search {display: grid;gap: 8px;margin-bottom: 20px;}
-.database-filter-grid {display: grid;grid-template-columns: repeat(4, minmax(0, 1fr));gap: 16px;}
-.database-filter-field {display: grid;min-width: 0;gap: 8px;}
-.database-keyword-search label,
-.database-filter-field label {font-size: 0.92rem;font-weight: 700;}
-.database-keyword-search input,
-.database-filter-field input,
-.database-filter-field select {width: 100%;min-height: 44px;padding: 10px 12px;border: 1px solid #c9c1b6;border-radius: 4px;background: #fff;color: #241A16;font: inherit;}
-.database-keyword-search input:focus-visible,
-.database-filter-field input:focus-visible,
-.database-filter-field select:focus-visible,
-.database-reset:focus-visible,
-.database-record-link:focus-visible {outline: 3px solid #D6A72C;outline-offset: 2px;}
-.database-reset {min-height: 42px;margin-top: 20px;padding: 9px 14px;border: 1px solid #241A16;border-radius: 4px;background: transparent;color: #241A16;font: inherit;font-weight: 700;cursor: pointer;}
-.database-reset:hover {background: #0D0D0D;color: #D6A72C;}
-.database-record-grid {display: grid;grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));gap: 24px;}
-.database-record {display: flex;flex-direction: column;min-width: 0;padding: 24px;border-top: 3px solid #D6A72C;border-radius: 6px;background: #fff;box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);}
-.database-record[hidden] {display: none;}
-.database-record-type {margin: 0 0 10px;color: #80621d;font-size: 0.78rem;font-weight: 700;letter-spacing: 0.08em;text-transform: uppercase;}
-.database-record-title {margin: 0 0 18px;font-size: 1.3rem;line-height: 1.3;}
-.database-record-metadata {display: grid;gap: 12px;margin: 0 0 18px;}
-.database-record-metadata > div {display: grid;gap: 3px;}
-.database-record-metadata dt {color: #6f6256;font-size: 0.82rem;font-weight: 700;}
-.database-record-metadata dd {margin: 0;line-height: 1.45;overflow-wrap: anywhere;}
-.database-record-description {margin: 0 0 20px;line-height: 1.65;}
-.database-record-access {margin-top: auto;padding-top: 16px;border-top: 1px solid rgba(36, 26, 22, 0.14);}
-.database-record-access p {margin: 10px 0 0;color: #6f6256;font-size: 0.92rem;line-height: 1.5;}
-.database-record-link {color: #241A16;font-weight: 700;text-decoration-color: #D6A72C;text-underline-offset: 3px;overflow-wrap: anywhere;}
-.database-empty-state {display: grid;min-height: 180px;place-items: center;margin: 0;padding: 32px;border: 1px dashed rgba(36, 26, 22, 0.35);background: rgba(255, 255, 255, 0.45);color: #6f6256;text-align: center;line-height: 1.6;}
-.database-empty-state[hidden] {display: none;}
+.database-page {min-height:55vh;background:#F5F1E8;color:#241A16}
+.database-container,.database-catalog,.database-sections {width:min(1200px,100%);margin:0 auto}
+.database-intro {padding:72px 24px 44px;border-bottom:1px solid rgba(214,167,44,.45)}
+.database-kicker {margin:0 0 12px;color:#70540f;font-size:.78rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase}
+.database-intro h1 {margin:0 0 18px;font-size:clamp(2.2rem,5vw,4rem);line-height:1.08}
+.database-intro > .database-container > p:last-child {max-width:780px;margin:0;font-size:1.08rem;line-height:1.7}
+.database-section-nav {position:sticky;top:0;z-index:5;display:flex;gap:8px;overflow-x:auto;padding:12px max(18px,calc((100vw - 1200px)/2));border-bottom:1px solid #d6a72c;background:#0D0D0D;scrollbar-width:thin}
+.database-section-nav a {flex:0 0 auto;padding:10px 13px;border:1px solid rgba(214,167,44,.6);border-radius:4px;color:#F5D778;font-size:.92rem;font-weight:700;text-decoration:none}
+.database-section-nav a:hover,.database-section-nav a:focus-visible {background:#D6A72C;color:#0D0D0D}
+.database-catalog {padding:38px 24px 0}
+.database-catalog > h2 {margin:0 0 18px;font-size:clamp(1.5rem,2.5vw,2rem)}
+.database-tools {padding:24px;border:1px solid rgba(36,26,22,.15);border-radius:8px;background:#fff;box-shadow:0 4px 15px rgba(0,0,0,.08)}
+.database-keyword-search,.database-filter-field {display:grid;min-width:0;gap:8px}
+.database-keyword-search {margin-bottom:20px}
+.database-filter-grid {display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+.database-keyword-search label,.database-filter-field label {font-size:.92rem;font-weight:700}
+.database-keyword-search input,.database-filter-field select {width:100%;min-height:44px;padding:10px 12px;border:1px solid #8a8175;border-radius:4px;background:#fff;color:#241A16;font:inherit}
+.database-keyword-search input:focus-visible,.database-filter-field select:focus-visible,.database-reset:focus-visible,.database-record-link:focus-visible,.database-section-nav a:focus-visible,.database-letter-button:focus-visible,.database-lightbox-trigger:focus-visible,.database-lightbox-close:focus-visible {outline:3px solid #9a6f00;outline-offset:3px}
+.database-results-tools {display:flex;align-items:center;justify-content:space-between;gap:16px;margin-top:18px}
+.database-result-count {margin:0;font-weight:700}
+.database-reset {min-height:42px;padding:9px 14px;border:1px solid #241A16;border-radius:4px;background:#fff;color:#241A16;font:inherit;font-weight:700;cursor:pointer}
+.database-reset:hover {background:#0D0D0D;color:#F5D778}
+.database-sections {padding:0 24px 24px}
+.database-section {padding:50px 0;border-bottom:1px solid rgba(36,26,22,.18);scroll-margin-top:82px}
+.database-section-heading {display:flex;align-items:baseline;gap:14px;flex-wrap:wrap;margin-bottom:22px}
+.database-section-heading .database-kicker {flex-basis:100%;margin-bottom:0}
+.database-section-heading h2 {margin:0;font-size:clamp(1.65rem,3vw,2.35rem)}
+.database-section-count {color:#62584d;font-size:.94rem;font-weight:700}
+.database-record-grid {display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,270px),1fr));gap:20px}
+.database-record {display:flex;flex-direction:column;min-width:0;padding:22px;border-top:3px solid #D6A72C;border-radius:6px;background:#fff;box-shadow:0 4px 15px rgba(0,0,0,.09)}
+.database-record[hidden] {display:none}
+.database-record-type {margin:0 0 10px;color:#70540f;font-size:.78rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase}
+.database-verification-badge {align-self:flex-start;margin:-2px 0 12px;padding:4px 8px;border-radius:3px;background:#f4e4bc;color:#513900;font-size:.78rem;font-weight:700}
+.database-record-title {margin:0 0 12px;font-size:1.24rem;line-height:1.32}
+.database-record-description,.database-record-definition {display:-webkit-box;overflow:hidden;-webkit-box-orient:vertical;-webkit-line-clamp:3;margin:0 0 16px;line-height:1.6}
+.database-theme-tags {display:flex;flex-wrap:wrap;gap:7px;margin:0 0 16px;padding:0;list-style:none}
+.database-theme-tags li {padding:4px 8px;border:1px solid #d6c69b;border-radius:999px;background:#faf6eb;color:#473813;font-size:.78rem;line-height:1.3}
+.database-record-metadata {display:grid;gap:11px;margin:0 0 18px}
+.database-record-metadata > div {display:grid;gap:3px}
+.database-record-metadata dt,.database-lightbox-credits dt {color:#5d5145;font-size:.82rem;font-weight:700}
+.database-record-metadata dd,.database-lightbox-credits dd {margin:0;line-height:1.45;overflow-wrap:anywhere}
+.database-record-access-detail {margin:0 0 16px;line-height:1.5}
+.database-record-access {display:grid;gap:10px;margin-top:auto;padding-top:16px;border-top:1px solid rgba(36,26,22,.14)}
+.database-access-label {margin:0;color:#51483d;font-size:.9rem}
+.database-record-link {justify-self:start;color:#241A16;font-weight:700;text-decoration-color:#9a6f00;text-underline-offset:3px;overflow-wrap:anywhere}
+.database-source-unavailable {color:#5d5145;font-size:.9rem}
+.database-empty-state {display:grid;min-height:130px;place-items:center;margin:0;padding:28px;border:1px dashed rgba(36,26,22,.4);background:rgba(255,255,255,.45);color:#51483d;text-align:center;line-height:1.6}
+.database-empty-state[hidden] {display:none}
+.database-alphabet {display:flex;flex-wrap:wrap;gap:6px;margin:0 0 20px}
+.database-letter-button {min-width:36px;min-height:38px;padding:6px 9px;border:1px solid #746753;border-radius:4px;background:#fff;color:#241A16;font:inherit;font-weight:700;cursor:pointer}
+.database-letter-button[aria-pressed="true"] {border-color:#0D0D0D;background:#0D0D0D;color:#F5D778}
+.database-letter-button:disabled {opacity:.45;cursor:not-allowed}
+.database-card-visual,.database-lightbox-visual {display:grid;min-height:180px;place-items:center;margin:0 0 14px;overflow:hidden;background:#e9e3d8;color:#51483d;text-align:center}
+.database-card-visual img,.database-lightbox-visual img {display:block;width:100%;height:100%;max-height:420px;object-fit:contain}
+.database-image-placeholder {padding:20px;font-size:.95rem;font-weight:700}
+.database-record-alt {margin:0 0 14px;color:#51483d;font-size:.88rem;line-height:1.5}
+.database-lightbox-trigger {align-self:flex-start;margin:0 0 16px;padding:8px 11px;border:1px solid #241A16;border-radius:4px;background:#fff;color:#241A16;font:inherit;font-weight:700;cursor:pointer}
+.database-lightbox-trigger:hover {background:#0D0D0D;color:#F5D778}
+.database-lightbox {width:min(760px,calc(100% - 28px));max-height:90vh;padding:0;border:1px solid #d6a72c;border-radius:8px;background:#F5F1E8;color:#241A16}
+.database-lightbox::backdrop {background:rgba(0,0,0,.76)}
+.database-lightbox-content {padding:clamp(18px,4vw,32px);overflow:auto}
+.database-lightbox-close {display:block;margin:0 0 16px auto;padding:8px 12px;border:1px solid #241A16;border-radius:4px;background:#0D0D0D;color:#F5D778;font:inherit;font-weight:700;cursor:pointer}
+.database-lightbox-visual {min-height:220px}
+.database-lightbox h2 {font-size:1.5rem;line-height:1.3}
+.database-lightbox p {line-height:1.6}
+.database-lightbox-credits {display:grid;gap:12px}
+.database-contact-note {max-width:1200px;margin:0 auto;padding:28px 24px 52px;font-size:1rem;line-height:1.6}
+.database-contact-note a {color:#241A16;font-weight:700;text-decoration-color:#9a6f00;text-underline-offset:3px}
 
 .culture-page {min-height: 55vh;background: #F5F1E8;color: #241A16;}
 .culture-container {max-width: 1200px;margin: 0 auto;}
@@ -482,10 +511,15 @@ body{margin:0;font-family:Georgia, 'Times New Roman', Times, serif}
 	.place-detail-header{grid-template-columns:minmax(0,1fr);gap:24px;padding-bottom:32px}
 	.place-detail-section{padding:24px 0}
 	.database-intro{padding:48px 18px 30px}
-	.database-catalog{padding:28px 18px 48px}
+	.database-section-nav{top:0;padding:10px 12px}
+	.database-catalog{padding:28px 18px 0}
+	.database-sections{padding:0 18px 18px}
+	.database-section{padding:38px 0;scroll-margin-top:74px}
 	.database-filter-grid{grid-template-columns:minmax(0,1fr)}
 	.database-tools{padding:18px}
+	.database-results-tools{align-items:flex-start;flex-direction:column}
 	.database-record{padding:20px}
+	.database-contact-note{padding:24px 18px 40px}
 	.culture-intro{padding:48px 18px 30px}
 	.culture-catalog{padding:28px 18px 48px}
 	.culture-status-filter{align-items:stretch;flex-direction:column}

@@ -344,33 +344,61 @@ function initializePlaceFilters(catalog) {
 }
 
 function initializeDatabaseCatalog(catalog) {
-  const recordList = catalog.querySelector('[data-database-list]');
-  const emptyState = catalog.querySelector('[data-database-empty]');
+  const sections = Array.from(catalog.querySelectorAll('[data-database-section]'));
   const keywordInput = catalog.querySelector('[data-database-search]');
-  const filters = {
-    type: catalog.querySelector('[data-database-filter="type"]'),
-    period: catalog.querySelector('[data-database-filter="period"]'),
-    municipality: catalog.querySelector('[data-database-filter="municipality"]'),
-    subject: catalog.querySelector('[data-database-filter="subject"]')
-  };
+  const themeFilter = catalog.querySelector('[data-database-filter="tema"]');
+  const municipalityFilter = catalog.querySelector('[data-database-filter="municipio"]');
+  const typeFilter = catalog.querySelector('[data-database-filter="tipo"]');
   const resetButton = catalog.querySelector('[data-database-reset]');
+  const resultCount = catalog.querySelector('[data-database-count]');
+  const alphabet = catalog.querySelector('[data-database-alphabet]');
+  const lightbox = catalog.querySelector('[data-database-lightbox]');
 
-  if (!recordList || !emptyState || !keywordInput || !filters.type || !filters.period ||
-      !filters.municipality || !filters.subject || !resetButton) {
+  if (!sections.length || !keywordInput || !themeFilter || !municipalityFilter ||
+      !typeFilter || !resetButton || !resultCount || !alphabet || !lightbox) {
     console.error('A estrutura do catálogo do banco de dados está incompleta.');
     return;
   }
 
-  const records = Array.from(recordList.querySelectorAll('[data-database-record]'));
-  const validTypes = Array.from(filters.type.options).map(function(option) {
-    return option.value;
-  }).filter(Boolean);
-
-  records.forEach(function(record) {
-    if (!validTypes.includes(record.dataset.materialType)) {
-      console.error('Cada registro precisa de um tipo válido em data-material-type.');
-    }
-  });
+  const validAccessValues = ['aberto', 'acervo físico', 'sob consulta'];
+  const sectionFiles = {
+    publicacoes: 'publicacoes',
+    acervos: 'acervos',
+    audiovisual: 'audiovisual',
+    noticias: 'noticias',
+    documentos: 'documentos-oficiais',
+    glossario: 'glossario',
+    iconografias: 'iconografias'
+  };
+  const sectionLabels = {
+    publicacoes: 'Publicações',
+    acervos: 'Acervos e arquivos',
+    audiovisual: 'Audiovisual',
+    noticias: 'Notícias e reportagens',
+    documentos: 'Documentos oficiais',
+    glossario: 'Glossário',
+    iconografias: 'Iconografias'
+  };
+  const metadataFields = {
+    publicacoes: [['Autor', 'autor'], ['Ano', 'ano'], ['Veículo', 'veiculo']],
+    acervos: [['Instituição', 'instituicao'], ['Endereço', 'endereco'], ['O que guarda', 'o_que_guarda'], ['Como acessar', 'como_acessar']],
+    audiovisual: [['Formato', 'formato'], ['Duração', 'duracao'], ['Ano', 'ano']],
+    noticias: [['Veículo', 'veiculo'], ['Data', 'data']],
+    documentos: [['Órgão', 'orgao'], ['Número', 'numero'], ['Data', 'data'], ['Assunto', 'assunto']],
+    glossario: [['Fonte', 'fonte']],
+    iconografias: [['Período', 'data_ou_periodo'], ['Local', 'local']]
+  };
+  const themeLabels = {
+    'clubes-e-sociedades': 'Clubes e sociedades',
+    religiosidade: 'Religiosidade',
+    'imigracao-africana': 'Imigração africana',
+    'quilombos-e-territorios': 'Quilombos e territórios',
+    'escravidao-e-pos-abolicao': 'Escravidão e pós-abolição',
+    'movimento-negro': 'Movimento negro',
+    'festas-e-cultura': 'Festas e cultura',
+    patrimonio: 'Patrimônio'
+  };
+  let glossaryLetter = '';
 
   function normalizeText(value) {
     return String(value || '')
@@ -379,57 +407,316 @@ function initializeDatabaseCatalog(catalog) {
       .replace(/[\u0300-\u036f]/g, '');
   }
 
-  function fieldText(record, selector) {
-    const field = record.querySelector(selector);
-    return field ? field.textContent : '';
+  function createTextElement(tagName, className, text) {
+    const element = document.createElement(tagName);
+    if (className) element.className = className;
+    element.textContent = text;
+    return element;
   }
 
-  function renderRecords() {
-    const keyword = normalizeText(keywordInput.value);
-    let visibleCount = 0;
-
-    records.forEach(function(record) {
-      const searchableText = normalizeText(record.textContent + ' ' + record.dataset.materialType);
-      const matchesKeyword = !keyword || searchableText.includes(keyword);
-      const matchesType = !filters.type.value || record.dataset.materialType === filters.type.value;
-      const matchesPeriod = normalizeText(fieldText(record, '.database-record-period'))
-        .includes(normalizeText(filters.period.value));
-      const matchesMunicipality = normalizeText(fieldText(record, '.database-record-municipality'))
-        .includes(normalizeText(filters.municipality.value));
-      const matchesSubject = normalizeText(fieldText(record, '.database-record-subject'))
-        .includes(normalizeText(filters.subject.value));
-      const isVisible = matchesKeyword && matchesType && matchesPeriod &&
-        matchesMunicipality && matchesSubject;
-
-      record.hidden = !isVisible;
-      if (isVisible) visibleCount++;
+  function appendMetadata(card, sectionName, record) {
+    const fields = metadataFields[sectionName].filter(function(field) {
+      return typeof record[field[1]] === 'string' && record[field[1]].trim();
     });
+    if (!fields.length) return;
 
-    if (records.length === 0) {
-      emptyState.textContent = 'Os registros serão adicionados aqui.';
-      emptyState.hidden = false;
-    } else if (visibleCount === 0) {
-      emptyState.textContent = 'Nenhum registro corresponde aos filtros atuais.';
-      emptyState.hidden = false;
-    } else {
-      emptyState.hidden = true;
+    const list = document.createElement('dl');
+    list.className = 'database-record-metadata';
+    fields.forEach(function(field) {
+      const wrapper = document.createElement('div');
+      wrapper.appendChild(createTextElement('dt', '', field[0]));
+      wrapper.appendChild(createTextElement('dd', '', record[field[1]]));
+      list.appendChild(wrapper);
+    });
+    card.appendChild(list);
+  }
+
+  function hasConfirmedPermission(record) {
+    return [record.credito, record.licenca_ou_autorizacao].every(function(value) {
+      return typeof value === 'string' && value.trim() &&
+        !value.includes('[A CONFIRMAR]');
+    });
+  }
+
+  function canShowIconographyImage(record) {
+    if (!record.imagem || !record.alt_text || !hasConfirmedPermission(record)) return false;
+    try {
+      const imageUrl = new URL(record.imagem, window.location.href);
+      return imageUrl.origin === window.location.origin &&
+        (imageUrl.protocol === 'http:' || imageUrl.protocol === 'https:');
+    } catch (error) {
+      return false;
     }
   }
 
-  keywordInput.addEventListener('input', renderRecords);
-  Object.keys(filters).forEach(function(filterName) {
-    filters[filterName].addEventListener('input', renderRecords);
-    filters[filterName].addEventListener('change', renderRecords);
-  });
-  resetButton.addEventListener('click', function() {
-    keywordInput.value = '';
-    Object.keys(filters).forEach(function(filterName) {
-      filters[filterName].value = '';
+  function appendIconographyVisual(container, record, useImage) {
+    if (useImage && canShowIconographyImage(record)) {
+      const image = document.createElement('img');
+      image.src = new URL(record.imagem, window.location.href).href;
+      image.alt = record.alt_text;
+      image.loading = 'lazy';
+      container.appendChild(image);
+      return;
+    }
+
+    container.appendChild(createTextElement('span', 'database-image-placeholder', 'Imagem a adicionar'));
+  }
+
+  function openLightbox(record) {
+    const visual = lightbox.querySelector('[data-lightbox-visual]');
+    visual.replaceChildren();
+    appendIconographyVisual(visual, record, true);
+    lightbox.querySelector('[data-lightbox-title]').textContent = record.titulo;
+    lightbox.querySelector('[data-lightbox-description]').textContent = record.descricao_visual;
+    lightbox.querySelector('[data-lightbox-credit]').textContent = record.credito || 'A confirmar';
+    lightbox.querySelector('[data-lightbox-license]').textContent = record.licenca_ou_autorizacao || 'A confirmar';
+    lightbox.showModal();
+  }
+
+  function createCard(sectionName, record) {
+    const card = document.createElement('article');
+    card.className = 'database-record';
+    card.dataset.recordId = record.id;
+    card.dataset.type = record.tipo;
+    card.dataset.municipality = record.municipio;
+    card.dataset.themes = record.tema.join('|');
+
+    const typeLabel = createTextElement('p', 'database-record-type', record.tipo);
+    card.appendChild(typeLabel);
+    if (!record.verificado) {
+      card.appendChild(createTextElement('span', 'database-verification-badge', 'Em verificação'));
+    }
+    card.appendChild(createTextElement('h3', 'database-record-title', record.titulo));
+    card.appendChild(createTextElement('p', 'database-record-description', record.resumo));
+
+    if (sectionName === 'iconografias') {
+      const visual = document.createElement('div');
+      visual.className = 'database-card-visual';
+      appendIconographyVisual(visual, record, true);
+      card.appendChild(visual);
+      card.appendChild(createTextElement('p', 'database-record-alt', 'Descrição da imagem: ' + record.alt_text));
+    }
+
+    const themes = document.createElement('ul');
+    themes.className = 'database-theme-tags';
+    record.tema.forEach(function(theme) {
+      themes.appendChild(createTextElement('li', '', themeLabels[theme] || theme));
     });
+    card.appendChild(themes);
+    appendMetadata(card, sectionName, record);
+
+    if (sectionName === 'acervos') {
+      card.appendChild(createTextElement('p', 'database-record-access-detail', record.como_acessar || 'Condições de acesso a confirmar.'));
+    }
+    if (sectionName === 'iconografias') {
+      const lightboxButton = createTextElement('button', 'database-lightbox-trigger', 'Ampliar e ver créditos');
+      lightboxButton.type = 'button';
+      lightboxButton.addEventListener('click', function() {
+        openLightbox(record);
+      });
+      card.appendChild(lightboxButton);
+    }
+
+    const access = document.createElement('div');
+    access.className = 'database-record-access';
+    access.appendChild(createTextElement('p', 'database-access-label', 'Acesso: ' + record.acesso));
+    if (record.link && /^https?:\/\//i.test(record.link)) {
+      const sourceLink = createTextElement('a', 'database-record-link', 'Acessar fonte');
+      sourceLink.href = record.link;
+      sourceLink.target = '_blank';
+      sourceLink.rel = 'noopener noreferrer';
+      access.appendChild(sourceLink);
+    } else {
+      access.appendChild(createTextElement('span', 'database-source-unavailable', 'Fonte digital não informada'));
+    }
+    card.appendChild(access);
+    card.dataset.searchText = normalizeText(JSON.stringify(record));
+    return card;
+  }
+
+  function validateRecords(sectionName, records) {
+    if (!Array.isArray(records)) throw new Error('O arquivo da seção deve conter uma lista de itens.');
+    const seenIds = new Set();
+    records.forEach(function(record) {
+      const hasCommonFields = record && typeof record.id === 'string' &&
+        typeof record.titulo === 'string' && typeof record.tipo === 'string' &&
+        Array.isArray(record.tema) && typeof record.municipio === 'string' &&
+        typeof record.resumo === 'string' && typeof record.link === 'string' &&
+        validAccessValues.includes(record.acesso) && typeof record.verificado === 'boolean';
+      if (!hasCommonFields || seenIds.has(record.id)) {
+        throw new Error('Item com campos comuns inválidos ou id repetido na seção ' + sectionLabels[sectionName] + '.');
+      }
+      if (sectionName === 'iconografias' &&
+          ['alt_text', 'credito', 'licenca_ou_autorizacao'].some(function(field) {
+            return typeof record[field] !== 'string';
+          })) {
+        throw new Error('Iconografias precisam informar alt_text, credito e licenca_ou_autorizacao.');
+      }
+      seenIds.add(record.id);
+    });
+    return records;
+  }
+
+  function populateSelect(select, values) {
+    Array.from(new Set(values.filter(Boolean))).sort(function(left, right) {
+      return left.localeCompare(right, 'pt-BR');
+    }).forEach(function(value) {
+      const option = document.createElement('option');
+      option.value = value;
+      option.textContent = value;
+      select.appendChild(option);
+    });
+  }
+
+  function populateAlphabet(glossaryRecords) {
+    const allButton = createTextElement('button', 'database-letter-button', 'Todos');
+    allButton.type = 'button';
+    allButton.dataset.letter = '';
+    allButton.setAttribute('aria-pressed', 'true');
+    alphabet.appendChild(allButton);
+    const letters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('');
+    const availableLetters = new Set(glossaryRecords.map(function(record) {
+      return normalizeText(record.titulo).charAt(0).toUpperCase();
+    }));
+
+    letters.forEach(function(letter) {
+      const button = createTextElement('button', 'database-letter-button', letter);
+      button.type = 'button';
+      button.dataset.letter = letter;
+      button.disabled = !availableLetters.has(letter);
+      button.setAttribute('aria-pressed', 'false');
+      alphabet.appendChild(button);
+    });
+
+    alphabet.addEventListener('click', function(event) {
+      const button = event.target.closest('[data-letter]');
+      if (!button || button.disabled) return;
+      glossaryLetter = button.dataset.letter;
+      alphabet.querySelectorAll('[data-letter]').forEach(function(letterButton) {
+        letterButton.setAttribute('aria-pressed', String(letterButton === button));
+      });
+      renderRecords();
+    });
+  }
+
+  function renderRecords() {
+    const keyword = normalizeText(keywordInput.value.trim());
+    const selectedTheme = themeFilter.value;
+    const selectedMunicipality = municipalityFilter.value;
+    const selectedType = typeFilter.value;
+    let totalVisible = 0;
+
+    sections.forEach(function(section) {
+      const sectionRecords = Array.from(section.querySelectorAll('.database-record'));
+      let sectionVisible = 0;
+      sectionRecords.forEach(function(card) {
+        const isGlossary = section.dataset.databaseSection === 'glossario';
+        const matchesKeyword = !keyword || card.dataset.searchText.includes(keyword);
+        const matchesTheme = !selectedTheme || card.dataset.themes.split('|').includes(selectedTheme);
+        const matchesMunicipality = !selectedMunicipality || card.dataset.municipality === selectedMunicipality;
+        const matchesType = !selectedType || card.dataset.type === selectedType;
+        const matchesLetter = !isGlossary || !glossaryLetter ||
+          normalizeText(card.querySelector('.database-record-title').textContent).charAt(0).toUpperCase() === glossaryLetter;
+        const isVisible = matchesKeyword && matchesTheme && matchesMunicipality && matchesType && matchesLetter;
+        card.hidden = !isVisible;
+        if (isVisible) {
+          sectionVisible++;
+          totalVisible++;
+        }
+      });
+
+      const emptyState = section.querySelector('[data-database-empty]');
+      const sectionCount = section.querySelector('[data-section-count]');
+      if (sectionCount) {
+        sectionCount.textContent = sectionVisible + (sectionVisible === 1 ? ' item' : ' itens');
+      }
+      if (emptyState && section.dataset.loadError !== 'true') {
+        emptyState.hidden = sectionVisible !== 0;
+      }
+    });
+
+    resultCount.textContent = totalVisible + (totalVisible === 1 ? ' resultado' : ' resultados');
+  }
+
+  function loadSection(section) {
+    const sectionName = section.dataset.databaseSection;
+    const fileName = sectionFiles[sectionName];
+    const list = section.querySelector('[data-database-list]');
+    if (!fileName || !list) {
+      return Promise.reject(new Error('Seção sem configuração de dados: ' + sectionName));
+    }
+    return fetch('dados-banco/' + fileName + '.json')
+      .then(function(response) {
+        if (!response.ok) throw new Error('Resposta HTTP ' + response.status);
+        return response.json();
+      })
+      .then(function(records) {
+        const validRecords = validateRecords(sectionName, records);
+        if (sectionName === 'glossario') {
+          validRecords.sort(function(left, right) {
+            return left.titulo.localeCompare(right.titulo, 'pt-BR', { sensitivity: 'base' });
+          });
+        }
+        validRecords.forEach(function(record) {
+          const card = createCard(sectionName, record);
+          list.appendChild(card);
+        });
+        return validRecords;
+      })
+      .catch(function(error) {
+        console.error('Não foi possível carregar a seção "' + sectionLabels[sectionName] + '".', error);
+        section.dataset.loadError = 'true';
+        const emptyState = section.querySelector('[data-database-empty]');
+        if (emptyState) {
+          emptyState.textContent = 'Não foi possível carregar esta seção. Tente novamente mais tarde.';
+          emptyState.hidden = false;
+        }
+        return [];
+      });
+  }
+
+  const closeButton = lightbox.querySelector('[data-lightbox-close]');
+  if (closeButton) closeButton.addEventListener('click', function() {
+    lightbox.close();
+  });
+  lightbox.addEventListener('click', function(event) {
+    if (event.target === lightbox) lightbox.close();
+  });
+
+  Promise.all(sections.map(loadSection)).then(function(loadedRecords) {
+    const allRecords = loadedRecords.reduce(function(records, sectionRecords) {
+      return records.concat(sectionRecords);
+    }, []);
+    populateSelect(municipalityFilter, allRecords.map(function(record) {
+      return record.municipio;
+    }));
+    populateSelect(typeFilter, allRecords.map(function(record) {
+      return record.tipo;
+    }));
+    populateAlphabet(loadedRecords[sections.findIndex(function(section) {
+      return section.dataset.databaseSection === 'glossario';
+    })] || []);
     renderRecords();
   });
 
-  renderRecords();
+  [keywordInput, themeFilter, municipalityFilter, typeFilter].forEach(function(filter) {
+    filter.addEventListener('input', renderRecords);
+    filter.addEventListener('change', renderRecords);
+  });
+  resetButton.addEventListener('click', function() {
+    keywordInput.value = '';
+    themeFilter.value = '';
+    municipalityFilter.value = '';
+    typeFilter.value = '';
+    glossaryLetter = '';
+    renderRecords();
+    const allButton = alphabet.querySelector('[data-letter=""]');
+    if (allButton) {
+      alphabet.querySelectorAll('[data-letter]').forEach(function(button) {
+        button.setAttribute('aria-pressed', String(button === allButton));
+      });
+    }
+  });
 }
 
 function initializeCultureCatalog(catalog) {

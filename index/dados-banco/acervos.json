@@ -1,0 +1,47 @@
+[
+  {
+    "id": "arquivo-historico-centro-documentacao-itajai",
+    "titulo": "Arquivo Histórico de Itajaí e Centro de Documentação e Memória Histórica",
+    "tipo": "Arquivo histórico",
+    "tema": ["escravidao-e-pos-abolicao", "patrimonio"],
+    "municipio": "Itajaí",
+    "resumo": "Vinculado à Fundação Genésio Miranda Lins, guarda documentos históricos, incluindo processos do Tribunal do Júri do século XIX usados em pesquisas sobre escravidão.",
+    "link": "",
+    "acesso": "sob consulta",
+    "verificado": false,
+    "instituicao": "Fundação Genésio Miranda Lins",
+    "endereco": "[A CONFIRMAR]",
+    "o_que_guarda": "Documentos históricos, como processos do Tribunal do Júri do século XIX, usados em pesquisas sobre escravidão.",
+    "como_acessar": "[A CONFIRMAR]"
+  },
+  {
+    "id": "fundacao-frei-godofredo-gaspar",
+    "titulo": "Fundação Frei Godofredo",
+    "tipo": "Acervo de história oral",
+    "tema": ["escravidao-e-pos-abolicao"],
+    "municipio": "Gaspar",
+    "resumo": "Reúne entrevistas orais com moradores antigos, incluindo descendentes de pessoas escravizadas de fazendas do Vale.",
+    "link": "",
+    "acesso": "sob consulta",
+    "verificado": false,
+    "instituicao": "Fundação Frei Godofredo",
+    "endereco": "[A CONFIRMAR]",
+    "o_que_guarda": "Entrevistas orais com moradores antigos, incluindo descendentes de pessoas escravizadas de fazendas do Vale.",
+    "como_acessar": "[A CONFIRMAR]"
+  },
+  {
+    "id": "arquivo-paroquial-matriz-sao-pedro-apostolo-gaspar",
+    "titulo": "Arquivo paroquial da Matriz São Pedro Apóstolo",
+    "tipo": "Arquivo paroquial",
+    "tema": ["escravidao-e-pos-abolicao", "religiosidade"],
+    "municipio": "Gaspar",
+    "resumo": "Registros de batismo de 1861 a 1888 usados para reconstituir famílias escravizadas e libertas.",
+    "link": "",
+    "acesso": "sob consulta",
+    "verificado": false,
+    "instituicao": "Matriz São Pedro Apóstolo",
+    "endereco": "[A CONFIRMAR]",
+    "o_que_guarda": "Registros de batismo de 1861 a 1888 usados para reconstituir famílias escravizadas e libertas.",
+    "como_acessar": "[A CONFIRMAR]"
+  }
+]

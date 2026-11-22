@@ -1,0 +1,67 @@
+[
+  {
+    "id": "a-outra-historia-de-itajai-geledes",
+    "titulo": "A outra história de Itajaí",
+    "tipo": "Reportagem",
+    "tema": ["escravidao-e-pos-abolicao", "movimento-negro"],
+    "municipio": "Itajaí",
+    "resumo": "Reportagem sobre a história de Itajaí.",
+    "link": "https://www.geledes.org.br/a-outra-historia-de-itajai/",
+    "acesso": "aberto",
+    "verificado": true,
+    "veiculo": "Geledés",
+    "data": ""
+  },
+  {
+    "id": "geracoes-do-samba-cultura-historia-itajai",
+    "titulo": "Gerações do Samba constroem a cultura e as faces da história de Itajaí",
+    "tipo": "Reportagem",
+    "tema": ["festas-e-cultura", "movimento-negro"],
+    "municipio": "Itajaí",
+    "resumo": "Reportagem sobre o Gerações do Samba e sua relação com a cultura e a história de Itajaí.",
+    "link": "https://ndmais.com.br/cultura/geracoes-do-samba-constroem-a-cultura-e-as-faces-da-historia-de-itajai/",
+    "acesso": "aberto",
+    "verificado": true,
+    "veiculo": "ND Mais",
+    "data": ""
+  },
+  {
+    "id": "virada-afro-cultural-itajai-12-horas",
+    "titulo": "4ª Virada Afro-Cultural movimenta Itajaí com 12h de música, dança, arte e gastronomia",
+    "tipo": "Reportagem",
+    "tema": ["festas-e-cultura", "movimento-negro"],
+    "municipio": "Itajaí",
+    "resumo": "Reportagem sobre a programação da 4ª Virada Afro-Cultural em Itajaí.",
+    "link": "https://diarinho.net/materia/662066/4---Virada-Afro-Cultural-movimenta-Itajai-com-12h-de-musica--danca--arte-e-gastronomia",
+    "acesso": "aberto",
+    "verificado": true,
+    "veiculo": "Diarinho",
+    "data": ""
+  },
+  {
+    "id": "acoes-conscientizacao-cultura-negra-itajai-novembro-2026",
+    "titulo": "Itajaí promove mais de 30 ações de conscientização e valorização da cultura negra em novembro",
+    "tipo": "Notícia",
+    "tema": ["movimento-negro", "festas-e-cultura"],
+    "municipio": "Itajaí",
+    "resumo": "Notícia sobre ações de conscientização e valorização da cultura negra em Itajaí.",
+    "link": "https://nopontosc.com.br/2026/11/09/itajai-promove-mais-de-30-acoes-de-conscientizacao-e-valorizacao-da-cultura-negra-em-novembro/",
+    "acesso": "aberto",
+    "verificado": true,
+    "veiculo": "NoPontoSC",
+    "data": "2026"
+  },
+  {
+    "id": "festival-imigracao-africana-itajai-praia-atalaia",
+    "titulo": "Itajaí celebra 50 anos da imigração africana com Festival Gastronômico e Cultural na Praia do Atalaia",
+    "tipo": "Reportagem",
+    "tema": ["imigracao-africana", "festas-e-cultura"],
+    "municipio": "Itajaí",
+    "resumo": "Reportagem sobre festival gastronômico e cultural na Praia do Atalaia.",
+    "link": "https://pagina3.com.br/cultura/itajai-celebra-50-anos-da-imigracao-africana-com-festival-gastronomico-e-cultural-na-praia-do-atalaia/",
+    "acesso": "aberto",
+    "verificado": true,
+    "veiculo": "Página 3",
+    "data": ""
+  }
+]
