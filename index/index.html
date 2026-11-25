@@ -6,6 +6,33 @@
         <title>Frentes Negras do Vale | Vale do Itajaí</title>
         <link rel="stylesheet" href="../style.css">
         <script src="../script.js" defer></script>
+        <style>
+            .home-intro-link{display:inline-block;margin-top:24px;padding:12px 20px;border:1px solid #D6A72C;border-radius:4px;color:#F5F1E8;font-weight:700;text-decoration:none;transition:background-color 160ms ease,color 160ms ease}
+            .home-intro-link:hover{background:#D6A72C;color:#241A16}
+            .home-intro-link:focus-visible,.home-feature-link:focus-visible{outline:3px solid #D6A72C;outline-offset:4px}
+            .home-feature-section{padding:clamp(48px,7vw,88px) 24px;background:#F5F1E8;color:#241A16}
+            .home-feature-section--history,.home-feature-section--places{background:#ebe4d6}
+            .home-feature{display:grid;grid-template-columns:minmax(0,0.95fr) minmax(0,1.05fr);align-items:center;gap:clamp(28px,6vw,76px);max-width:1200px;margin:0 auto}
+            .home-feature__image{grid-column:1;grid-row:1;overflow:hidden;margin:0;border-radius:8px;background:#e9e3d8;box-shadow:0 4px 15px rgba(0,0,0,0.12)}
+            .home-feature__image img{display:block;width:100%;aspect-ratio:4/3;object-fit:cover}
+            .home-feature__copy{grid-column:2;grid-row:1}
+            .home-feature-section--reverse .home-feature__image{grid-column:2}
+            .home-feature-section--reverse .home-feature__copy{grid-column:1}
+            .home-feature__kicker{margin:0 0 12px;color:#80621d;font-size:0.78rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase}
+            .home-feature__copy h2{margin:0 0 16px;font-size:clamp(1.8rem,3.2vw,2.7rem);line-height:1.12}
+            .home-feature__copy > p:not(.home-feature__kicker){margin:0 0 20px;font-size:1.05rem;line-height:1.75}
+            .home-feature-link{color:#6b5014;font-weight:700;text-underline-offset:4px}
+            .home-feature-link:hover{color:#241A16}
+            .home-news-intro{max-width:760px;margin:0 auto 28px;color:#51453c;text-align:center;line-height:1.65}
+            @media (max-width:700px){
+                .home-feature-section{padding:44px 18px}
+                .home-feature{grid-template-columns:minmax(0,1fr);gap:24px}
+                .home-feature__image,.home-feature-section--reverse .home-feature__image{grid-column:1;grid-row:1}
+                .home-feature__copy,.home-feature-section--reverse .home-feature__copy{grid-column:1;grid-row:2}
+                .home-feature__copy h2{font-size:clamp(1.7rem,8vw,2.2rem)}
+                .home-feature__copy > p:not(.home-feature__kicker){font-size:1rem}
+            }
+        </style>
 </head>
 <body>
         <header class="site-header">
@@ -48,13 +75,71 @@
                 <div class="hero-overlay"></div>
                 <div class="hero-content">
                     <h1>FRENTES NEGRAS</h1>
-                    <p>Este é um espaço que busca conhecer, valorizar e preservar as histórias, memórias e contribuições da população negra na construção da identidade cultural do Vale de Itajaí.</p>
+                    <p>Um espaço dedicado a valorizar, preservar e divulgar a história, a memória e a cultura negra em Santa Catarina, especialmente em Itajaí e no Vale do Itajaí.</p>
+                    <a class="home-intro-link" href="sobre-nos.html">Conheça o projeto</a>
                     <span class="hero-reference">Pintura de Robson Barbosa</span>
                 </div>
             </section>
 
-            <section class="posts-section posts-home-section">
-                <h2>Notícias</h2>
+            <section class="home-feature-section home-feature-section--history" aria-labelledby="home-history-title">
+                <div class="home-feature">
+                    <figure class="home-feature__image">
+                        <img src="../imagens/igreja%20imaculada.jpg" alt="Igreja da Imaculada Conceição, em Itajaí">
+                    </figure>
+                    <div class="home-feature__copy">
+                        <p class="home-feature__kicker">História e memória</p>
+                        <h2 id="home-history-title">Presenças que formam a nossa história</h2>
+                        <p>Da escravidão e da formação regional às organizações negras, às trajetórias de resistência e às conquistas por reconhecimento, a história de Santa Catarina e do Vale do Itajaí também é feita pela população negra.</p>
+                        <a class="home-feature-link" href="marcos-historicos.html">Percorra a linha do tempo</a>
+                    </div>
+                </div>
+            </section>
+
+            <section class="home-feature-section home-feature-section--reverse" aria-labelledby="home-people-title">
+                <div class="home-feature">
+                    <figure class="home-feature__image">
+                        <img src="../imagens/sebastiao%20lucas.png" alt="Imagem de Sebastião Lucas Pereira">
+                    </figure>
+                    <div class="home-feature__copy">
+                        <p class="home-feature__kicker">Personalidades</p>
+                        <h2 id="home-people-title">Trajetórias de arte, pensamento e resistência</h2>
+                        <p>Conheça personalidades como Sebastião Lucas Pereira, liderança negra e operária de Itajaí, e outras pessoas cujas ações e produções contribuem para a história, a cultura e a sociedade catarinense.</p>
+                        <a class="home-feature-link" href="biografias-e-trajetorias.html">Conheça essas trajetórias</a>
+                    </div>
+                </div>
+            </section>
+
+            <section class="home-feature-section home-feature-section--history" aria-labelledby="home-culture-title">
+                <div class="home-feature">
+                    <figure class="home-feature__image">
+                        <img src="../imagens/festa%20do%20rosario.webp" alt="Celebração da Festa de Nossa Senhora do Rosário">
+                    </figure>
+                    <div class="home-feature__copy">
+                        <p class="home-feature__kicker">Cultura</p>
+                        <h2 id="home-culture-title">Celebrações, saberes e expressões culturais</h2>
+                        <p>Festas, religiosidade, música, dança, capoeira, artes e culinária revelam a diversidade da cultura negra na região. Entre elas, a Festa de Nossa Senhora do Rosário, retomada pelo movimento negro em 1992 e reconhecida como patrimônio imaterial de Itajaí.</p>
+                        <a class="home-feature-link" href="cultura.html">Explore as manifestações culturais</a>
+                    </div>
+                </div>
+            </section>
+
+            <section class="home-feature-section home-feature-section--reverse home-feature-section--places" aria-labelledby="home-places-title">
+                <div class="home-feature">
+                    <figure class="home-feature__image">
+                        <img src="../imagens/morro%20do%20boi.jpg" alt="Território do Quilombo do Morro do Boi">
+                    </figure>
+                    <div class="home-feature__copy">
+                        <p class="home-feature__kicker">Lugares e territórios</p>
+                        <h2 id="home-places-title">Espaços onde a memória permanece</h2>
+                        <p>O catálogo reúne territórios como o Quilombo do Morro do Boi, espaços de sociabilidade e resistência como a Sociedade Sebastião Lucas e lugares de memória que desapareceram ou foram transformados, como o Beco do Quilombo.</p>
+                        <a class="home-feature-link" href="lugares.html">Descubra os espaços de memória</a>
+                    </div>
+                </div>
+            </section>
+
+            <section class="posts-section posts-home-section" aria-labelledby="home-news-title">
+                <h2 id="home-news-title">Notícias</h2>
+                <p class="home-news-intro">Acompanhe atividades, encontros e iniciativas que mantêm viva a memória e a cultura negra no Vale do Itajaí.</p>
                 <div class="posts-section-actions">
                     <a href="noticias.html">Ver todas as notícias</a>
                 </div>
