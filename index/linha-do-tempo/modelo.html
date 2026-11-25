@@ -1,34 +1,126 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Página-modelo de acontecimento | Frentes Negras do Vale</title>
-        <link rel="stylesheet" href="../../style.css">
-        <script src="../../script.js" defer></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Povos originários e ocupação do território | Frentes Negras do Vale</title>
+    <link rel="stylesheet" href="../../style.css">
+    <script src="../../script.js" defer></script>
 </head>
 <body>
-        <header class="site-header">
-            <div class="logo-wrap">
-                <a href="../index.html" class="logo-link">
-                    <div class="logo">Frentes Negras do Vale</div>
-                    <div class="logo-subtitle">História e cultura negra no Vale do Itajaí</div>
-                </a>
-            </div>
+    <header class="site-header">
+        <div class="logo-wrap">
+            <a href="../index.html" class="logo-link">
+                <div class="logo">Frentes Negras do Vale</div>
+                <div class="logo-subtitle">História e cultura negra no Vale do Itajaí</div>
+            </a>
+        </div>
+        <div class="search" role="search">
+            <button class="search-icon" aria-label="Pesquisar">
+                <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                    <circle cx="11" cy="11" r="6.5"></circle>
+                    <line x1="16" y1="16" x2="21" y2="21"></line>
+                </svg>
+            </button>
+            <input type="search" placeholder="Pesquisar..." aria-label="Pesquisar">
+        </div>
+        <div class="hamburger">
+            <button class="hamburger-btn" aria-expanded="false" aria-controls="main-menu" aria-label="Abrir menu">☰</button>
+            <nav id="main-menu" class="hamburger-menu" aria-hidden="true">
+                <ul>
+                    <li><a href="../noticias.html">Notícias</a></li>
+                    <li><a href="../marcos-historicos.html">Marcos Históricos</a></li>
+                    <li><a href="../biografias-e-trajetorias.html">Arte, Pensamento e Resistência</a></li>
+                    <li><a href="../lugares.html">Espaços de Memória e Cultura</a></li>
+                    <li><a href="../banco-de-dados.html">Banco de Dados</a></li>
+                    <li><a href="../cultura.html">Manifestações Culturais</a></li>
+                    <li><a href="../sobre-nos.html">Sobre nós</a></li>
+                    <li><a href="../fale-conosco.html">Fale Conosco</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
 
-            <div class="search" role="search">
-                <button class="search-icon" aria-label="Pesquisar">
-                    <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-                        <circle cx="11" cy="11" r="6.5"></circle>
-                        <line x1="16" y1="16" x2="21" y2="21"></line>
-                    </svg>
-                </button>
-                <input type="search" placeholder="Pesquisar..." aria-label="Pesquisar" />
+    <main>
+        <section class="main-image-placeholder" aria-label="Imagem de destaque: sambaqui">
+            <img class="main-image-photo" src="../../imagens/sambaqui.jpg" alt="Imagem de sambaqui">
+        </section>
+        <section class="timeline-chapter-intro" aria-labelledby="chapter-title">
+            <div class="timeline-container">
+                <p class="timeline-chapter-kicker">Arquivo histórico digital · Santa Catarina</p>
+                <h1 id="chapter-title">Povos originários e ocupação do território</h1>
+                <p class="timeline-chapter-context">Introdução contextual sobre a ocupação humana do território catarinense antes e durante a colonização europeia — conteúdo a inserir.</p>
+                <p class="timeline-chapter-note">Os acontecimentos estão organizados em ordem cronológica. Períodos, descrições e imagens podem ser preenchidos com materiais pesquisados.</p>
             </div>
+        </section>
 
-            <div class="hamburger">
-                <button class="hamburger-btn" aria-expanded="false" aria-controls="main-menu" aria-label="Abrir menu">☰</button>
-                <nav id="main-menu" class="hamburger-menu" aria-hidden="true">
+        <section class="timeline-events-section" aria-labelledby="events-title">
+            <div class="timeline-container">
+                <h2 id="events-title">Acontecimentos</h2>
+                <ol class="timeline-events-grid">
+                    <li>
+                        <a class="timeline-event-card" href="formacao-dos-sambaquis.html">
+                            <span class="timeline-event-image"><img src="../../imagens/sambaqui.jpg" alt="Sambaqui"></span>
+                            <span class="timeline-event-content"><span class="timeline-event-number">01</span><span class="timeline-event-period">Período a inserir</span><h3>Formação dos Sambaquis</h3><span class="timeline-event-description">Descrição breve a inserir.</span><span class="timeline-event-link">Explorar acontecimento <span aria-hidden="true">→</span></span></span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="timeline-event-card" href="povos-indigenas.html">
+                            <span class="timeline-event-image timeline-event-image-empty" role="img" aria-label="Imagem a inserir"></span>
+                            <span class="timeline-event-content"><span class="timeline-event-number">02</span><span class="timeline-event-period">Período a inserir</span><h3>Presença dos povos indígenas Guarani, Xokleng (Laklãnõ) e Kaingang</h3><span class="timeline-event-description">Conheça os povos Guarani, Laklãnõ-Xokleng e Kaingang, seus modos de vida, línguas e presença contemporânea.</span><span class="timeline-event-link">Explorar acontecimento <span aria-hidden="true">→</span></span></span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="timeline-event-card" href="contato-com-europeus.html">
+                            <span class="timeline-event-image timeline-event-image-empty" role="img" aria-label="Imagem a inserir"></span>
+                            <span class="timeline-event-content"><span class="timeline-event-number">03</span><span class="timeline-event-period">Período a inserir</span><h3>Contato com os europeus</h3><span class="timeline-event-description">Descrição breve a inserir.</span><span class="timeline-event-link">Explorar acontecimento <span aria-hidden="true">→</span></span></span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="timeline-event-card" href="povoado-nossa-senhora-da-graca.html">
+                            <span class="timeline-event-image timeline-event-image-empty" role="img" aria-label="Imagem a inserir"></span>
+                            <span class="timeline-event-content"><span class="timeline-event-number">04</span><span class="timeline-event-period">1658–1665</span><h3>Fundação do povoado de Nossa Senhora da Graça</h3><span class="timeline-event-description">A ocupação vicentista, a formação da vila e o desenvolvimento econômico e social de São Francisco do Sul.</span><span class="timeline-event-link">Explorar acontecimento <span aria-hidden="true">→</span></span></span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="timeline-event-card" href="capitania-de-santa-catarina.html">
+                            <span class="timeline-event-image timeline-event-image-empty" role="img" aria-label="Imagem a inserir"></span>
+                            <span class="timeline-event-content"><span class="timeline-event-number">05</span><span class="timeline-event-period">1738–1821</span><h3>Criação da Capitania de Santa Catarina</h3><span class="timeline-event-description">Governo militar, fortificações, povoamento e disputa territorial no sul da América.</span><span class="timeline-event-link">Explorar acontecimento <span aria-hidden="true">→</span></span></span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="timeline-event-card" href="chegada-acorianos-madeirenses.html">
+                            <span class="timeline-event-image timeline-event-image-empty" role="img" aria-label="Imagem a inserir"></span>
+                            <span class="timeline-event-content"><span class="timeline-event-number">06</span><span class="timeline-event-period">1746–1756</span><h3>Chegada dos açorianos e madeirenses</h3><span class="timeline-event-description">Imigração, formação de comunidades, economia de subsistência e permanências culturais no litoral.</span><span class="timeline-event-link">Explorar acontecimento <span aria-hidden="true">→</span></span></span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="timeline-event-card" href="ocupacao-de-lages.html">
+                            <span class="timeline-event-image timeline-event-image-empty" role="img" aria-label="Imagem a inserir"></span>
+                            <span class="timeline-event-content"><span class="timeline-event-number">07</span><span class="timeline-event-period">Período a inserir</span><h3>Ocupação de Lages</h3><span class="timeline-event-description">Descrição breve a inserir.</span><span class="timeline-event-link">Explorar acontecimento <span aria-hidden="true">→</span></span></span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="timeline-event-card" href="expansao-atividades-agricolas.html">
+                            <span class="timeline-event-image timeline-event-image-empty" role="img" aria-label="Imagem a inserir"></span>
+                            <span class="timeline-event-content"><span class="timeline-event-number">08</span><span class="timeline-event-period">Período a inserir</span><h3>Expansão das atividades agrícolas</h3><span class="timeline-event-description">Descrição breve a inserir.</span><span class="timeline-event-link">Explorar acontecimento <span aria-hidden="true">→</span></span></span>
+                        </a>
+                    </li>
+                </ol>
+                <a class="timeline-back-link" href="../marcos-historicos.html">Voltar aos Marcos Históricos</a>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="footer-content">
+            <div class="footer-brand">
+                <h3>Frentes Negras do Vale</h3>
+                <p>Memória, história e cultura negra no Vale do Itajaí</p>
+            </div>
+            <div class="footer-links">
+                <div class="footer-column">
+                    <h4>Navegação</h4>
                     <ul>
                         <li><a href="../noticias.html">Notícias</a></li>
                         <li><a href="../marcos-historicos.html">Marcos Históricos</a></li>
@@ -39,58 +131,20 @@
                         <li><a href="../sobre-nos.html">Sobre nós</a></li>
                         <li><a href="../fale-conosco.html">Fale Conosco</a></li>
                     </ul>
-                </nav>
-            </div>
-        </header>
-
-        <main class="post-page">
-            <article class="post-article">
-                <h1>Povos originários e ocupação do território</h1>
-                <p class="timeline-detail-date">ANTES DO SÉCULO XVI - SÉCULO XVIII</p>
-                <div class="post-text">
-                    <p>Descrição completa a inserir.</p>
                 </div>
-                <a class="timeline-back-link" href="../marcos-historicos.html">Voltar à Linha do Tempo</a>
-            </article>
-        </main>
-        
-
-        <footer class="site-footer">
-            <div class="footer-content">
-                <div class="footer-brand">
-                    <h3>Frentes Negras do Vale</h3>
-                    <p>Memória, história e cultura negra no Vale do Itajaí</p>
-                </div>
-
-                <div class="footer-links">
-                    <div class="footer-column">
-                        <h4>Navegação</h4>
-                        <ul>
-                            <li><a href="../noticias.html">Notícias</a></li>
-                            <li><a href="../marcos-historicos.html">Marcos Históricos</a></li>
-                            <li><a href="../biografias-e-trajetorias.html">Arte, Pensamento e Resistência</a></li>
-                            <li><a href="../lugares.html">Espaços de Memória e Cultura</a></li>
-                            <li><a href="../banco-de-dados.html">Banco de Dados</a></li>
-                            <li><a href="../cultura.html">Manifestações Culturais</a></li>
-                            <li><a href="../sobre-nos.html">Sobre nós</a></li>
-                            <li><a href="../fale-conosco.html">Fale Conosco</a></li>
-                        </ul>
-                    </div>
-
-                    <div class="footer-column">
-                        <h4>Fontes e instituições</h4>
-                        <ul>
-                            <li><a href="../museu-historico-de-itajai.html">Museu Histórico de Itajaí</a></li>
-                            <li><a href="../arquivo-historico-de-itajai.html">Arquivo Histórico de Itajaí</a></li>
-                        </ul>
-                    </div>
+                <div class="footer-column">
+                    <h4>Fontes e instituições</h4>
+                    <ul>
+                        <li><a href="../museu-historico-de-itajai.html">Museu Histórico de Itajaí</a></li>
+                        <li><a href="../arquivo-historico-de-itajai.html">Arquivo Histórico de Itajaí</a></li>
+                    </ul>
                 </div>
             </div>
-
-            <div class="footer-bottom">
-                <p>Projeto desenvolvido como parte do Trabalho de Conclusão de Curso em História.</p>
-                <p>Bruna Chagas · 2026</p>
-            </div>
-        </footer>
+        </div>
+        <div class="footer-bottom">
+            <p>Projeto desenvolvido como parte do Trabalho de Conclusão de Curso em História.</p>
+            <p>Bruna Chagas · 2026</p>
+        </div>
+    </footer>
 </body>
 </html>
