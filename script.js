@@ -374,7 +374,7 @@ function initializeDatabaseCatalog(catalog) {
     publicacoes: 'Publicações',
     acervos: 'Acervos e arquivos',
     audiovisual: 'Audiovisual',
-    noticias: 'Notícias e reportagens',
+    noticias: 'Publicações e reportagens',
     documentos: 'Documentos oficiais',
     glossario: 'Glossário',
     iconografias: 'Iconografias'
